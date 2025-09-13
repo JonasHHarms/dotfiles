@@ -1,0 +1,93 @@
+    OpenRGB v0.9
+    Commit:  from 
+    Launched: 20250202_205705
+====================================================================================================
+
+1005  |Info:    ------------------------------------------------------
+1005  |Info:    |               Start device detection               |
+1005  |Info:    ------------------------------------------------------
+1006  |Info:    Initializing HID interfaces: Success
+1013  |Info:    ------------------------------------------------------
+1013  |Info:    |             Detecting I2C interfaces               |
+1013  |Info:    ------------------------------------------------------
+1014  |Info:    Registering I2C interface: /dev/i2c-3 Device 8086:A7A0 Subsystem: 1043:214D
+1014  |Info:    Registering I2C interface: /dev/i2c-1 Device 8086:A7A0 Subsystem: 1043:214D
+1014  |Info:    Registering I2C interface: /dev/i2c-8 Device 8086:A7A0 Subsystem: 1043:214D
+1014  |Info:    Registering I2C interface: /dev/i2c-15 Device 10DE:28E1 Subsystem: 1043:214D
+1014  |Info:    Registering I2C interface: /dev/i2c-13 Device 0000:0000 Subsystem: 0000:0000
+1014  |Info:    Registering I2C interface: /dev/i2c-11 Device 8086:51A3 Subsystem: 1043:1573
+1014  |Info:    Registering I2C interface: /dev/i2c-0 Device 8086:A7A0 Subsystem: 1043:214D
+1014  |Info:    Registering I2C interface: /dev/i2c-OVTI13B1:00 Device 0000:0000 Subsystem: 0000:0000
+1014  |Info:    Registering I2C interface: /dev/i2c-7 Device 8086:A7A0 Subsystem: 1043:214D
+1014  |Info:    Registering I2C interface: /dev/i2c-5 Device 8086:A7A0 Subsystem: 1043:214D
+1014  |Info:    ------------------------------------------------------
+1014  |Info:    |               Detecting I2C devices                |
+1014  |Info:    ------------------------------------------------------
+1022  |Info:    ------------------------------------------------------
+1022  |Info:    |               Detecting I2C PCI devices            |
+1022  |Info:    ------------------------------------------------------
+1023  |Info:    ------------------------------------------------------
+1023  |Info:    |               Detecting HID devices                |
+1023  |Info:    ------------------------------------------------------
+1073  |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+1127  |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+1127  |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+1128  |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+1128  |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+1129  |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+1129  |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+1129  |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+1129  |Info:    ------------------------------------------------------
+1129  |Info:    |            Detecting libusb HID devices            |
+1129  |Info:    ------------------------------------------------------
+1142  |Info:    ------------------------------------------------------
+1142  |Info:    |              Detecting other devices               |
+1142  |Info:    ------------------------------------------------------
+1148  |Info:    ------------------------------------------------------
+1148  |Info:    |                Detection completed                 |
+1148  |Info:    ------------------------------------------------------
+1148  |Dialog:  <h2>WARNING:</h2><p>One or more I2C/SMBus interfaces failed to initialize.</p><p>RGB DRAM modules and some motherboards' onboard RGB lighting will not be available without I2C/SMBus.</p><p>On Linux, this is usually because the i2c-dev module is not loaded.  You must load the i2c-dev module along with the correct i2c driver for your motherboard.  This is usually i2c-piix4 for AMD systems and i2c-i801 for Intel systems.</p><p>See <a href='https://help.openrgb.org/'>help.openrgb.org</a> for additional troubleshooting steps if you keep seeing this message.<br></p>
+28628 |Info:    ------------------------------------------------------
+28628 |Info:    |               Start device detection               |
+28628 |Info:    ------------------------------------------------------
+28629 |Info:    Initializing HID interfaces: Success
+28636 |Info:    ------------------------------------------------------
+28636 |Info:    |             Detecting I2C interfaces               |
+28636 |Info:    ------------------------------------------------------
+28636 |Info:    Registering I2C interface: /dev/i2c-3 Device 8086:A7A0 Subsystem: 1043:214D
+28636 |Info:    Registering I2C interface: /dev/i2c-1 Device 8086:A7A0 Subsystem: 1043:214D
+28636 |Info:    Registering I2C interface: /dev/i2c-8 Device 8086:A7A0 Subsystem: 1043:214D
+28636 |Info:    Registering I2C interface: /dev/i2c-15 Device 10DE:28E1 Subsystem: 1043:214D
+28636 |Info:    Registering I2C interface: /dev/i2c-13 Device 0000:0000 Subsystem: 0000:0000
+28636 |Info:    Registering I2C interface: /dev/i2c-11 Device 8086:51A3 Subsystem: 1043:1573
+28636 |Info:    Registering I2C interface: /dev/i2c-0 Device 8086:A7A0 Subsystem: 1043:214D
+28636 |Info:    Registering I2C interface: /dev/i2c-OVTI13B1:00 Device 0000:0000 Subsystem: 0000:0000
+28636 |Info:    Registering I2C interface: /dev/i2c-7 Device 8086:A7A0 Subsystem: 1043:214D
+28636 |Info:    Registering I2C interface: /dev/i2c-5 Device 8086:A7A0 Subsystem: 1043:214D
+28636 |Info:    ------------------------------------------------------
+28636 |Info:    |               Detecting I2C devices                |
+28636 |Info:    ------------------------------------------------------
+28643 |Info:    ------------------------------------------------------
+28643 |Info:    |               Detecting I2C PCI devices            |
+28643 |Info:    ------------------------------------------------------
+28644 |Info:    ------------------------------------------------------
+28644 |Info:    |               Detecting HID devices                |
+28644 |Info:    ------------------------------------------------------
+28645 |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+28645 |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+28645 |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+28646 |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+28646 |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+28646 |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+28647 |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+28647 |Info:    [ViewSonic Monitor XG270QG] Registering RGB controller
+28647 |Info:    ------------------------------------------------------
+28647 |Info:    |            Detecting libusb HID devices            |
+28647 |Info:    ------------------------------------------------------
+28650 |Info:    ------------------------------------------------------
+28650 |Info:    |              Detecting other devices               |
+28650 |Info:    ------------------------------------------------------
+28651 |Info:    ------------------------------------------------------
+28651 |Info:    |                Detection completed                 |
+28651 |Info:    ------------------------------------------------------
+28651 |Dialog:  <h2>WARNING:</h2><p>One or more I2C/SMBus interfaces failed to initialize.</p><p>RGB DRAM modules and some motherboards' onboard RGB lighting will not be available without I2C/SMBus.</p><p>On Linux, this is usually because the i2c-dev module is not loaded.  You must load the i2c-dev module along with the correct i2c driver for your motherboard.  This is usually i2c-piix4 for AMD systems and i2c-i801 for Intel systems.</p><p>See <a href='https://help.openrgb.org/'>help.openrgb.org</a> for additional troubleshooting steps if you keep seeing this message.<br></p>

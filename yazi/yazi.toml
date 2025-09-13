@@ -1,0 +1,23 @@
+# yazi.toml
+[mgr]
+show_hidden = true
+sort_by = "natural"
+sort_sensitive = true
+sort_translit = true
+sort_dir_first = true
+show_symlink = true
+
+[opener]
+play = [
+	{ run = 'vlc "$@"', orphan = true, for = "unix" },
+]
+edit = [
+	{ run = '$EDITOR "$@"', block = true, for = "unix" },
+]
+open = [
+	{ run = 'xdg-open "$@"', desc = "Open" },
+]
+
+
+[input]
+cursor_blink = false

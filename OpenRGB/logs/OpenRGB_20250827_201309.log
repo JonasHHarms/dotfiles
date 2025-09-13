@@ -1,0 +1,11 @@
+    OpenRGB v0.9+ (1.0rc1)
+    Commit:  from 
+    Launched: 20250827_201309
+====================================================================================================
+
+1     |Info:    [ProfileManager] Found file: off.orp attempting to validate header
+2     |Info:    [ProfileManager] Valid v4 profile found for off
+371   |Info:    [ResourceManager] Calling Post-detection callbacks
+371   |Info:    ------------------------------------------------------
+371   |Info:    |                Detection completed                 |
+371   |Info:    ------------------------------------------------------

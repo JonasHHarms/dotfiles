@@ -1,0 +1,19 @@
+window {
+	margin: 1px;
+	border-radius: 15px;
+	background-color: rgba(0,0,0,0.7);
+}
+
+input{
+        margin: 10px 15px; 
+}
+
+text {
+	margin: 15px;
+	color: rgba(240, 234, 214, 1);
+} 
+
+entry:selected {
+	background-color: transparent;
+}
+

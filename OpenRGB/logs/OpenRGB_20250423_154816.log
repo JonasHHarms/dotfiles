@@ -1,0 +1,16 @@
+    OpenRGB v0.9
+    Commit:  from 
+    Launched: 20250423_154816
+====================================================================================================
+
+0     |Info:    Found file: off.orp attempting to validate header
+0     |Info:    Valid v4 profile found for off
+22950 |Info:    Profile loading: Succeeded for ASUS ROG STRIX 3090 O24G GAMING @ I2C: /dev/i2c-3, address 0x67
+22950 |Info:    Profile loading: Succeeded for ViewSonic Monitor XG270QG @ /dev/hidraw0
+22950 |Info:    Profile loading: Succeeded for ViewSonic Monitor XG270QG @ /dev/hidraw1
+22950 |Info:    Profile loading: Succeeded for ViewSonic Monitor XG270QG @ /dev/hidraw1
+22950 |Info:    Profile loading: Succeeded for ViewSonic Monitor XG270QG @ /dev/hidraw1
+22950 |Info:    Profile loading: Succeeded for ViewSonic Monitor XG270QG @ /dev/hidraw1
+22950 |Info:    Profile loading: Succeeded for ViewSonic Monitor XG270QG @ /dev/hidraw1
+22950 |Info:    Profile loading: Succeeded for ViewSonic Monitor XG270QG @ /dev/hidraw1
+22950 |Info:    Profile loading: Succeeded for ViewSonic Monitor XG270QG @ /dev/hidraw1

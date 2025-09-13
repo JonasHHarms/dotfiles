@@ -1,0 +1,161 @@
+(defvar aurupdates "0" )
+(defvar processes "0")
+(defvar orphans "0")
+(defvar bluefilter "0")
+(defvar repoupdates "0")
+(defvar brightnesslvl '100')
+(defvar brightnesskbd '1')
+(defvar fanmode "Performance")
+(deflisten volume :initial 0 ' ~/.config/eww/scripts/getvol.sh')
+(deflisten volmuted :initial "Mute: no" '~/.config/eww/scripts/getmuted.sh')
+(deflisten snddev :initial "" '~/.config/eww/scripts/getsnddev.sh')
+(defpoll micstatus :interval "2s" '~/.config/eww/scripts/getmicstat.sh')
+(deflisten camstatus :initial "OPEN" '~/.config/eww/scripts/getvidstat.sh')
+(defpoll sndapps :interval "2s"  '~/.config/eww/scripts/audioapps.sh --devices')
+(defpoll btstatus :interval "2s" ' ~/.config/eww/scripts/bluetooth.sh --status')
+(defpoll btcount :initial "on" :interval "2s" ' ~/.config/eww/scripts/bluetooth.sh --count')
+(defpoll gpustats :interval "2s" '~/.config/eww/scripts/getgpus.sh')
+(defpoll updatevars :interval "2s" '~/.config/eww/scripts/updatevars.sh')
+(defpoll ident :interval "5s" '~/.config/eww/scripts/getloc.sh')
+
+(defwindow mybar
+  :monitor 0
+  :wm-ignore true
+  :exclusive true
+  :geometry (geometry :width "1%" :height "100%" :anchor "center left")
+  (bar))
+
+(defwindow arch_window 
+  :monitor 0
+  :stacking "overlay"
+  :exclusive false
+  :geometry (geometry :anchor "center left" :x "0.5%" :height "98%")
+  (arch_center))
+
+(defwidget bar []
+    (centerbox :orientation "v" :class "barbar"
+      (box :orientation "v"  :space-evenly false :spacing 10 :class "hw_box"
+        (label :text "${formattime(EWW_TIME,'%H:%M%n%D')}" :class "myclock" )
+        (label :class "hw_metric" :halign "start" :text "${fanmode == 'Quiet' ? '󰡳  Q' : fanmode == 'Balanced' ? '󰡵  B' : fanmode == 'Performance' ? '󰊚  P' : fanmode == 'Turbo' ? '󰡴  T' : 'Error ' }")
+        (label :text "󰁹 ${EWW_BATTERY.BAT0.capacity}" :halign "start":class "${EWW_BATTERY.BAT0.capacity >= 80 ? 'hw_blue' :
+                                                                               EWW_BATTERY.BAT0.capacity >= 50 ? 'hw_green' :
+                                                                               EWW_BATTERY.BAT0.capacity >= 20 ? 'hw_yellow' : 'hw_red'}")
+        (label :text "${volmuted == 'Mute: yes' ? '󰝟 M' : snddev == 'analog-output-speaker' ? '󰓃 ${volume}' : snddev == 'analog-output-headphones' ? '󰋋 ${volume}' : snddev == 'hdmi-output-0' ? '󰽟 ${volume}' : 'ERROR'}" :halign "start" :class "hw_metric") 
+        (label :text "${replace(jq(micstatus,'.mute'),'"','') == 'yes' ? '' : ''}   ${replace(jq(micstatus,'.vol'),'"','')}" :halign "start" :class "${replace(jq(micstatus,'.mute'),'"','') == 'yes' ? 'hw_metric' : 'hw_red'}") 
+        (label :text "${btstatus == 'off' ? '󰂲' : ''} ${btcount}" :halign "start" :class "${btstatus == 'off' ? 'hw_metric' : 'hw_blue'}") 
+        (label :text "  ${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}" :halign "start" :class "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0 <= 60 ? 'hw_green' :
+                                                                                       EWW_TEMPS.CORETEMP_PACKAGE_ID_0 <= 80 ? 'hw_yellow' : 'hw_red' }")
+        (label :text "    ${round(EWW_CPU.avg,0)}" :halign "start") 
+        (label :text " 󰧑  ${round(EWW_RAM.used_mem_perc,0)}" :halign "start")
+        (label :text " I  ${round(replace(jq(gpustats,'.igpu'),'"',''),0)}" :halign "start") 
+        (label :text " D  ${replace(jq(gpustats,'.dgpu'),'"','')}" :halign "start") 
+        (label :text " E ${replace(jq(gpustats,'.egpu'),'"','')}" :halign "start") 
+        (box :orientation "h" :halign "start" :spacing 15 (label :text "${camstatus == 'CLOSED' ? '' : ''}") )
+        (label :text "${replace(jq(ident,'.ident'),'"','') == 'Datacamp Limited, DE' ? '󰢏' :
+                        replace(jq(ident,'.ident'),'"','') == 'Tor' ? '' : '!'}" :halign "center")
+        (label :text "󰮯  ${repoupdates > 0 ? repoupdates : '󰸞'}" :halign "start" )
+        (label :text "󰊢  ${aurupdates > 0 ? aurupdates : '󰸞'}" :halign "start" )
+        (label :text "󰮢  ${orphans > 0 ? orphans : '󰸞'}" :halign "start" )
+        (label :text "  ${processes > 0 ? processes : 'E'}" :halign "start")
+        (label :text "${updatevars}" :halign "start")
+         )
+      (box (label :class "archlogo" :text "󰣇" :halign "center"))
+      (systray :orientation "v" :prepend-new false :valign "end" :class "systray")))
+
+(defwidget arch_center []
+  (eventbox  :class "widget_window" :onhoverlost "~/eww/target/release/eww close arch_window"
+    (box :orientation "v" :space-evenly false :spacing 3 
+      (label :text "Lets hope I dont crash" :class "header1")
+      (label :text "${formattime(EWW_TIME,'%a, %d %b. %Y')}" :class "header1")
+      (label :text "PulseAudio-Ctl" :halign "start" :class "header1")
+      (guislider :desc "${volmuted == 'Mute: yes' ? '󰝟' : volmuted == 'Mute: no' ? 'Main' : 'error'}" :val volume :change "pactl set-sink-volume @DEFAULT_SINK@ {}%")
+      (revealer :reveal `${replace(jq(sndapps,'.[].vol'),'"','') != 0}` :transition "slidedown"
+        (guislider :desc `${replace(jq(sndapps,'.[].app'),'"','')}` :val `${replace(jq(sndapps,'.[].vol'),'"','')}` :change "pactl set-sink-volume @DEFAULT_SINK@ {}%" :tooltip `${replace(jq(sndapps,'.[].med'),'"','')}`))
+      (brightnessbox)
+      (hw_center))))
+
+
+(defwidget graphelper [?type contents ?unit ?icon ?mid ?bad ?factor]
+  (box :space-evenly false :orientation "v" :spacing 0
+    (label :text "${icon}" :class "hw_icon" :style "color: ${contents*factor > bad ? 'red' : contents*factor > mid ? 'yellow' : 'green'}")
+    (overlay 
+      (label :text "${type} ${contents}${unit}" :class "hw_icon" :halign "center")
+      (box :height 10 :class "hw_graph" :halign "center" :width 35
+        (graph  :thickness 2 :value contents :time-range "15m" :min 0 :max 105 :dynamic false :line-style "round" :class "graph_line" :style "color: ${contents*factor > bad ? 'red' : contents*factor > mid ? 'yellow' : 'green'};")))))
+
+(defwidget guibutton [?description enable disable decider decision]
+  (box :space-evenly false :spacing 10 :orientation "h" :halign "start"
+    (label :text "${description}" :halign "start" :class "header1")
+    (box :space-evenly false :spacing 0 :orientation "h" :class "buttongui" :halign "end"
+      (checkbox :onchecked "${enable}" 
+        :onunchecked "${disable}"
+       :checked "${decider == decision ? false : true}"
+        :style "check {color: rgba(0,0,0,0);}" ""))))
+
+(defwidget guislider [desc val change ?max ?flip ?min]
+  (overlay :class "guislider" 
+    (scale :orientation "h"
+      :flipped {flip=='' ? false : flip} 
+      :class "guisliderscale"
+      :value "${val == '' ? 0 : val}"
+      :min {min=='' ? 0 : min} :max {max=='' ? 100 : max}
+      :onchange "${change}")
+    (label :text "${desc}" :halign "start" )))
+
+(defwidget notification [base check]
+  (overlay
+    (label :text "${base}" :class "hw_icon")
+      (label :text "${check == 0 ? "󰸞" : check}" :class {check == 0 ? "uptodate" : "notifyer"})))
+
+(defwidget packageupdater []
+  (box :space-evenly false :spacing 7 :orientation "v" :halign "center"
+    (notification :base "󰮯" :check "${repoupdates}")
+    (notification :base "󰊢" :check "${aurupdates}")
+    (notification :base "󰮢" :check "${orphans}")     
+    (label :text ": ${processes}" :class "hw_icon")
+))
+
+(defwidget snddev []
+  (eventbox :onclick "~/eww/target/release/eww open arch_window --toggle" :height 30 :width 40
+    (overlay :halign "center"
+      (progress :orientation "v" :flipped true :class "slider" :value "${volume}")
+      (label :text  "${volmuted == 'Mute: yes' ? '󰝟' : snddev == 'analog-output-speaker' ? '󰓃' : snddev == 'analog-output-headphones' ? '󰋋' : snddev == 'hdmi-output-0' ? '󰽟' : 'ERROR'}"))))
+
+(defwidget hw_center []
+    (box
+    (tooltip 
+      (box :halign "start" :orientation "v"
+        (label :text "Connections" :class "header2" )
+        (box :orientation "h" :space-evenly true :width 350
+          (label :text "Devices")
+          (label :text "Battery")
+          (label :text "Signal"))
+        (scroll :vscroll true
+          (box :orientation "h" 
+            (label :text "${replace(jq(btstatus,'.[].dev'),'"','')}")
+            (label :text "${replace(jq(btstatus,'.[].bat'),'"','')}")
+            (label :text "${replace(jq(btstatus,'.[].sig'),'"','')}")))
+      (box :halign "start" :orientation "v"
+        (label :text "Remembered:" :class "header2" )))
+ (guibutton :description "󰂯" :enable "~/.config/eww/scripts/bluetooth.sh --enable & disown" :disable "~/.config/eww/scripts/bluetooth.sh --disable & disown" :decider "${btstatus}" :decision "off" :halighn "end"))
+  ))
+
+(defwidget brightnessbox []
+    (box :orientation "v" 
+      (label :text "System-Ctl" :class "header1" :halign "start")
+      (packageupdater :halign "center")
+      (guislider :desc "${brightnesslvl == 0 ? '󰛩' :
+                          brightnesslvl < 10 ?  '󱩎' :
+                          brightnesslvl < 20 ?  '󱩏' :
+                          brightnesslvl < 30 ?  '󱩐' :
+                          brightnesslvl < 40 ?  '󱩑' :
+                          brightnesslvl < 50 ?  '󱩒' :
+                          brightnesslvl < 60 ?  '󱩓' :
+                          brightnesslvl < 70 ?  '󱩔' :
+                          brightnesslvl < 80 ?  '󱩕' :
+                          brightnesslvl < 90 ?  '󱩖' : 
+                          brightnesslvl == 100 ? '󰛨' : '󰛨'}" :val brightnesslvl :change "brightnessctl --class=backlight s {}% & ${EWW_CMD} update brightnesslvl={}%" :max 100)
+      (guislider :desc "󰃝" :max 5500 :min {0} :flip false :change `${bluefilter == 0 ? "nohup hyprsunset -t $[6500-{}] & disown & ${EWW_CMD} update bluefilter={}" : "pkill hyprsunset && nohup hyprsunset -t $[6500-{}] & disown & ${EWW_CMD} update bluefilter=$({})"}` :val bluefilter) 
+    (guislider :desc "󰌌" :change "brightnessctl --device=asus::kbd_backlight s {} & ${EWW_CMD} update brightnesskbd=$({})" :max 4 :min 0 :val brightnesskbd)))
+
+;; vim:ft=yuck

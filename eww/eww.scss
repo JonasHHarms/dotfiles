@@ -1,0 +1,208 @@
+$borderradius: 15px;
+$margin: 5px 5px 5px 5px;
+$rainforestgreen: #50C878;
+$archblue: #1793d1;
+$archgrey: #627b87;
+$archred: #d11736;
+$archorange: #d15517;
+$archyellow: #d1b217;
+$eggshell: #f0ead6;
+$fontsize: 18px;
+$smallfontsize: 12px;
+$iconfontsize: 23px;
+$nanofontsize: 6px;
+
+* {
+  all: unset;
+}
+
+.mybar {
+  background: rgba(#000000,1);
+}
+
+ * .barbar {
+  border-color: rgba(#000000,1);
+  margin: 0px 1px 0px 0px;
+  padding: 5px 5px 5px 5px;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 15px;
+  > * {
+    color: $eggshell;
+    font-size: $fontsize;
+    font-weight: bold;
+    }
+  > * .archlogo {
+    margin: 0px;
+    padding: 5px 19px 5px 5px;
+    font-size: 60px;
+    color: $archblue;
+  }
+  > .hw_box {
+    > .myclock {
+      font-size: 18px;
+      font-family: 'hackNF';
+      color: $archblue;
+    }
+    > .hw_metric {
+      font-size: 15px;
+      background: transparent;
+      color: white;
+      }
+    > .hw_blue {
+      font-size: 15px;
+      background: transparent;
+      color: $archblue;
+      }
+    > .hw_green {
+      font-size: 15px;
+      background: transparent;
+      color: green;
+      }
+    > .hw_yellow {
+      font-size: 15px;
+      background: transparent;
+      color: yellow;
+      }
+    > .hw_red {
+      font-size: 16px;
+      background: transparent;
+      color: red;
+      }
+
+  }
+  > * .hw_graph {
+    border-color: rgba($rainforestgreen,0.5);
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    background-size:  5px  5px;
+    background-image:
+      linear-gradient(to right, rgba($eggshell,0.15) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba($eggshell,0.15) 1px, transparent 1px);
+    }
+  > * .graph_line {
+    margin-right: 1.5px;
+    margin-bottom: 2px;
+    border-width: 1px 1px 1px 10px;
+    }
+  > * .slider {
+    trough {
+      background-color: $archgrey;
+      min-width: 30px;
+      min-height: 1px;
+      border-radius: 10px;
+    progress {
+      background-color: $rainforestgreen;
+      border-radius: 1px 1px 10px 10px;
+      min-width: 30px;
+      min-height: 1px;
+}
+    }
+  }
+}
+
+.widget_window {
+  border-radius: 15px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 5px 5px 5px 5px;
+  > * .header1 {
+    font-weight: bold;
+    font-size: 25px;
+    padding: 10px;
+  }
+  > * .header2 {
+    padding: 10px 5px 10px 50px;
+    margin: 6px 0px 6px 0px;
+    border-bottom: 1px solid $rainforestgreen; 
+    border-top: 1px solid $rainforestgreen; 
+    font-size: 15px;
+    font-weight: bold;
+    }
+  > * .hw_icon {
+    font-size: 26;
+    padding: 15px;
+    }
+   > * .notifyer {
+    font-size: medium;
+    font-weight: bold;
+    background-color: rgba($archorange,0.9);
+    border-radius: 100%;
+    margin: 7px 2px 30px 17px;
+    padding: 0px;
+    }
+  > * .uptodate {
+    font-size: medium;
+    font-weight: bold;
+    background-color:   rgba($rainforestgreen,0.9);
+    border-radius: 100%;
+    margin: 7px 2px 30px 17px;
+    padding: 0px;
+    }
+    > * .hw_indi {
+    background-color: $archgrey;
+    border-radius: 50%;
+    margin: 10px -15px 10px 10px;
+    padding: 10px 20px 10px 13px;
+    }
+  > * .slider2 {
+    padding: 25px 20px;
+    trough {
+      background-color: $archgrey;
+      min-height: 30px;
+      min-width: 280px;
+      border-radius: 15px;
+    highlight {
+      background-color: $archblue;
+      border-radius: 15px;}
+    }
+  }
+  
+}
+
+.buttongui {
+  font-size: 24px;
+  margin-right: 20px;
+  label {
+    margin-left: -55px;
+    margin-bottom: 1px;
+  }
+  check {
+    border-radius: 15px;
+    border: 1.5px solid $eggshell;
+    margin: 0px 0px 0px 0px;
+    padding: 5px 20px 5px 20px;
+  }
+  check:checked {
+    background-color: rgba($archblue, 1);
+    & + label {
+    margin-left: -25px;  
+    }
+  }
+  check:not(:checked) {
+    background-color: rgba($archgrey, 0.65);
+  }
+}
+
+.guislider {
+  label {
+    font-size: $iconfontsize;
+    font-weight: bold;
+    padding-left: 30px;
+  }
+  scale {
+    padding-left: 20px;
+    padding-right: 40px;
+
+    trough {
+      background-color: $eggshell;
+      min-height: 30px;
+      min-width: 280px;
+      border-radius: 15px;
+    highlight {
+      background-color: $archblue;
+      border-radius: 15px;}
+    }
+  }
+}
+

@@ -1,0 +1,6 @@
+2025/03/16-13:52:31.540 2cf8b Reusing MANIFEST /home/TatenK/.config/discord/Local Storage/leveldb/MANIFEST-000001
+2025/03/16-13:52:31.550 2cf8b Recovering log #45
+2025/03/16-13:52:31.550 2cf8b Reusing old log /home/TatenK/.config/discord/Local Storage/leveldb/000045.log 
+2025/03/16-13:55:52.440 2cf8b Level-0 table #49: started
+2025/03/16-13:55:52.453 2cf8b Level-0 table #49: 990608 bytes OK
+2025/03/16-13:55:52.455 2cf8b Delete type=0 #45

@@ -1,0 +1,176 @@
+[global]
+    #monitor = 0
+    # Display notification on focused monitor.  Possible modes are: mouse: follow mouse pointer keyboard: follow window with keyboard focus none: don't follow anything
+    follow = mouse
+    origin = top-right
+        offset = (3, 62)
+    title = Dunst
+    class = Dunst
+    corners = all
+    corner_radius = 11
+    scale = 0
+    indicate_hidden = yes
+    notification_limit = 0
+    progress_bar = false
+        progress_bar_height = 1
+        progress_bar_frame_width = 0
+        progress_bar_corner_radius = 1
+        progress_bar_corners = all
+    icon_position = off
+        icon_corner_radius = 10
+        icon_corners = all
+        enable_recursive_icon_lookup = true
+        min_icon_size = 32
+        max_icon_size = 128
+        icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    separator_height = 2
+        padding = 5
+    horizontal_padding = 5
+    text_icon_padding = 0
+    frame_width = 1
+        frame_color = "#1793d1"
+    gap_size = 0
+    separator_color = "#1793d1"
+    sort = update
+    idle_threshold = 120
+    font = IosevkaNF 12
+    line_height = 0
+    markup = full
+    format = "<b>%a</b>\n%s\n%b" # %a  appname %s  summary %b  body %i  iconname (including path) %I  iconname (without path) %p  progress ([  0%] to [100%]) %n  progress value without %%  Literal %
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = -1
+    ellipsize = end
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    sticky_history = yes
+    history_length = 20
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    ignore_dbusclose = false
+    layer = top
+    force_xwayland = true
+    force_xinerama = false
+    mouse_left_click = do_action, close_current  # * none: Don't do anything. * do_action: Invoke the action determined by the action_name rule. If there is no such action, open the context menu. * open_url: If the notification has exactly one url, open it. If there are multiple ones, open the context menu. * close_current: Close current notification. * close_all: Close all notifications. * context: Open context menu for the notification. * context_all: Open context menu for all notifications. These values can be strung together for each mouse event, and will be executed in sequence.
+    mouse_right_click = close_current
+    fullscreen = show
+[experimental]
+   # per_monitor_dpi = true
+
+[urgency_low]
+    background = "#000000"
+    foreground = "#f0ead6"
+    timeout = 10
+
+[urgency_normal]
+    background = "#000000"
+    foreground = "#f0ead6"
+    timeout = 10
+
+[urgency_critical]
+    background = "#000000"
+    foreground = "#f0ead6"
+    frame_color = "#ff0000"
+    timeout = 0
+    override_pause_level = 60
+
+# Messages can be matched by
+#    appname (discouraged, see desktop_entry)
+#    body
+#    category
+#    desktop_entry
+#    icon
+#    match_transient
+#    msg_urgency
+#    stack_tag
+#    summary
+#
+# and you can override the
+#    background
+#    foreground
+#    format
+#    frame_color
+#    fullscreen
+#    new_icon
+#    set_stack_tag
+#    set_transient
+#    set_category
+#    timeout
+#    urgency
+#    icon_position
+#    skip_display
+#    history_ignore
+#    action_name
+#    word_wrap
+#    ellipsize
+#    alignment
+#    hide_text
+#    override_pause_level
+#
+# NOTE: It might be helpful to run dunst -print in a terminal in order
+# to find fitting options for rules.
+
+#[transient_disable]
+#    match_transient = yes
+#    set_transient = no
+#
+#[transient_history_ignore]
+#    match_transient = yes
+#    history_ignore = yes
+
+#[fullscreen_delay_everything]
+#    fullscreen = delay
+#[fullscreen_show_critical]
+#    msg_urgency = critical
+
+#[espeak]
+#    summary = "*"
+#    script = dunst_espeak.sh
+
+#[script-test]
+#    summary = "*script*"
+#    script = dunst_test.sh
+
+#[ignore]
+#    # This notification will not be displayed
+#    summary = "foobar"
+#    skip_display = true
+
+#[history-ignore]
+#    # This notification will not be saved in history
+#    summary = "foobar"
+#    history_ignore = yes
+
+#[skip-display]
+#    # This notification will not be displayed, but will be included in the history
+#    summary = "foobar"
+#    skip_display = yes
+
+#[signed_on]
+#    appname = Pidgin
+#    summary = "*signed on*"
+#    urgency = low
+#
+#[signed_off]
+#    appname = Pidgin
+#    summary = *signed off*
+#    urgency = low
+#
+#[says]
+#    appname = Pidgin
+#    summary = *says*
+#    urgency = critical
+#
+#[twitter]
+#    appname = Pidgin
+#    summary = *twitter.com*
+#    urgency = normal
+#
+#[stack-volumes]
+#    appname = "some_volume_notifiers"
+#    set_stack_tag = "volume"
+#
+# vim: ft=cfg

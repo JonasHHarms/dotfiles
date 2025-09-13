@@ -1,0 +1,21 @@
+# this is the peaclock config
+# file: /home/TatenK/.config/kitty/config
+# date: 2025-04-23T14:28:45Z
+
+mode clock
+view digital
+date '%a, %d %b %Y'
+rate-input 50
+rate-status 5000
+rate-refresh 1000
+date-padding 1
+set date on
+set seconds on
+set hour-24 on
+style background #010000
+style active-fg #010000
+style inactive-fg #010000
+style active-bg #a1b56c
+style inactive-bg #010000
+style date #a1b56c
+style error red

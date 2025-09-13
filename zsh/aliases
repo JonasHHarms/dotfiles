@@ -1,0 +1,16 @@
+alias cat="bat"
+alias ali="cat ~/.config/zsh/aliases"
+alias rstudio="/usr/lib/rstudio/rstudio & disown"
+alias clr="clear;fastfetch -l none"
+alias eww="~/eww/target/release/eww"
+alias cd='z'
+alias ohmyzsh="mate ~/.oh-my-zsh"
+alias reboot="systemctl reboot"
+alias poweroff="systemctl poweroff"
+alias vpn="sudo wg-quick up /etc/wireguard/wg-DE-650.conf"
+alias vi="nvim -n"
+alias ls="ls -l"
+alias ff="firefox & disown"
+alias fans="asusctl profile --profile-set Quiet"
+alias whoami="whoami && ~/.config/eww/scripts/getloc.sh"
+
