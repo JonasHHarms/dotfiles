@@ -1,0 +1,153 @@
+# Do not put comment after a config, would be interpreted as a part of the value
+# Empty to reset config default. eg: key =
+
+# Font
+font-family = 
+font-family = IosevkaTerm Nerd Font
+font-family-bold = 
+font-family-italic = 
+font-family-bold-italic = 
+font-style = default
+font-style-bold = default
+font-style-italic = default
+font-style-bold-italic = default
+font-synthetic-style = bold,italic,bold-italic
+font-feature = 
+font-size = 10
+font-variation = 
+font-variation-bold = 
+font-variation-italic = 
+font-variation-bold-italic = 
+font-codepoint-map = 
+alpha-blending = linear-corrected
+adjust-cell-width = 
+adjust-cell-height = 
+adjust-font-baseline = 
+adjust-underline-position = 
+adjust-underline-thickness = 
+adjust-strikethrough-position = 
+adjust-strikethrough-thickness = 
+adjust-overline-position = 
+adjust-overline-thickness = 
+window-inherit-font-size = true
+link-url = true
+minimum-contrast = 2
+
+#Cursor
+adjust-cursor-thickness = 
+adjust-cursor-height = 
+adjust-box-thickness = 
+grapheme-width-method = unicode
+freetype-load-flags = hinting,force-autohint,monochrome,autohint
+cursor-color = 
+cursor-invert-fg-bg = false
+cursor-opacity = 1
+cursor-style = block
+cursor-style-blink = false
+cursor-text = 
+cursor-click-to-move = true
+mouse-hide-while-typing = true
+mouse-shift-capture = false
+mouse-scroll-multiplier = 1
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = true
+copy-on-select = false
+bold-is-bright = false
+selection-foreground = 
+selection-background = 
+selection-invert-fg-bg = false
+
+#themes
+window-padding-balance = false
+window-padding-color = background
+window-vsync = true
+window-padding-x = 3
+window-padding-y = 3
+#theme = 3024 Night
+#theme = Builtin Dark
+#theme = Dark Pastel
+#theme = deep
+#theme = detuned
+#theme = Firefly Traditional
+theme = Galizur
+#theme = Monokai Remastered
+#theme = Neopolitan
+#theme = PaulMillr
+#theme = RetroLegends
+#theme = Seti
+#theme = Symfonic
+#theme = synthwave
+#theme = Tomorrow Night Bright
+#theme = VibrantInk
+background = #000000
+background-opacity = 0
+background-blur = true
+window-decoration = auto
+window-theme = dark
+window-colorspace = srgb
+window-save-state = default
+window-new-tab-position = current
+resize-overlay = never
+focus-follows-mouse = true
+shell-integration = zsh
+shell-integration-features = cursor,no-sudo,title
+osc-color-report-format = 16-bit
+custom-shader = 
+custom-shader-animation = true
+gtk-opengl-debug = false
+gtk-titlebar = false
+gtk-tabs-location = top
+gtk-titlebar-hide-when-maximized = false
+adw-toolbar-style = flat
+gtk-wide-tabs = true
+gtk-adwaita = true
+
+# behaviour
+command = 
+initial-command = 
+wait-after-command = false
+abnormal-command-exit-runtime = 250
+class = 
+x11-instance-name = 
+working-directory = 
+window-inherit-working-directory = true
+app-notifications = true
+desktop-notifications = true
+scrollback-limit = 10000000
+image-storage-limit = 320000000
+confirm-close-surface = false
+quit-after-last-window-closed = false
+quit-after-last-window-closed-delay = 
+initial-window = true
+linux-cgroup = always
+linux-cgroup-hard-fail = false
+term = xterm-ghostty
+auto-update = off
+
+# Quickterm Note: There is no default keybind for toggling the quick terminal. To enable this feature, bind the `toggle_quick_terminal` action to a key.
+quick-terminal-position = top
+quick-terminal-screen = main
+quick-terminal-animation-duration = 0.2
+quick-terminal-autohide = true
+quick-terminal-space-behavior = move
+
+# key
+keybind = super+space=toggle_quick_terminal
+keybind = shift+insert=paste_from_selection
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = ctrl+c=copy_to_clipboard
+keybind = shift+right=adjust_selection:right
+keybind = shift+left=adjust_selection:left
+keybind = shift+down=adjust_selection:down
+keybind = shift+up=adjust_selection:up
+keybind = ctrl+shift+a=select_all
+keybind = ctrl+plus=increase_font_size:25
+keybind = ctrl+minus=decrease_font_size:25
+keybind = page_up=scroll_page_up
+keybind = end=scroll_to_bottom
+keybind = page_down=scroll_page_down
+keybind = alt+f4=close_window
+keybind = shift+home=scroll_to_top
+keybind = ctrl+shift+i=inspector:toggle

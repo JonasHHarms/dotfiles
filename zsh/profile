@@ -1,0 +1,84 @@
+#
+#  My Zshrc
+#   Sets shell enviroment for non login shells 
+
+
+# exports
+export ZSH="$HOME/.oh-my-zsh"
+export MANPATH="/usr/local/man:$MANPATH"
+export ARCHFLAGS="-arch $(uname -m)"
+export LESS="R -N --mouse --use-color -Dd+r -Du+b"
+
+# zsh-settings
+plugins=(git sudo fzf git-prompt zoxide zsh-autosuggestions)
+CASE_SENSITIVE="true"
+ENABLE_CORRECTION="false"
+COMPLETION_WAITING_DOTS="true"
+DISABLE_UNTRACKED_FILES_DIRTY="false"
+HIST_STAMPS="dd.mm.yyyy"
+HISTSIZE=1000000
+SAVEHIST=1000000
+HISTFILE="$HOME/.cache/zsh_history"
+
+# Prompt
+setopt PROMPT_SUBST
+TMOUT=30
+TRAPALRM() {
+  zle reset-prompt
+}
+export PS1=" %F{blue}%D{%H:%M} | 󰣇 >> %f%~/ %F{blue}>>%f$ "
+
+# alias
+source ~/.config/zsh/aliases
+# opts
+setopt extended_glob
+setopt pushd_ignore_dups
+setopt auto_list
+setopt auto_param_keys
+setopt auto_param_slash 
+setopt correct
+setopt print_exit_value
+setopt rm_star_wait
+setopt sun_keyboard_hack
+setopt auto_continue
+setopt auto_resume
+setopt autocd
+setopt interactive_comments
+setopt auto_menu 
+setopt menu_complete
+setopt long_list_jobs
+setopt pipe_fail
+setopt globdots
+unsetopt prompt_sp
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_lex_words
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt hist_reduce_blanks
+setopt append_history
+setopt inc_append_history
+setopt share_history
+# zstyle ':completion:' menu select
+
+eval "$(zoxide init zsh)"
+# Functions
+y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(<"$tmp")" && [[ -n "$cwd" && "$cwd" != "$PWD" ]]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+source $ZSH/oh-my-zsh.sh
+
+# pnpm
+export PNPM_HOME="/home/TatenK/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
