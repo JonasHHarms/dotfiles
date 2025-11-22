@@ -1,2 +1,2 @@
 #! /bin/zsh
-asusctl profile -n
+asusctl profile -p

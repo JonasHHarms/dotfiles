@@ -7,7 +7,7 @@ monitor_gpus() {
   egpu=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits -i GPU-7e542696-0d0e-5f40-c250-4e31f68d7af6)
 
   if [ "$egpu" = "No devices were found" ]; then
-    egpu=0
+    egpu="-"
   fi
 
   jq -n \
