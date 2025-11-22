@@ -16,9 +16,6 @@ $nanofontsize: 6px;
   all: unset;
 }
 
-.mybar {
-  background: rgba(#000000,1);
-}
 
  * .barbar {
   border-color: rgba(#000000,1);
@@ -41,7 +38,6 @@ $nanofontsize: 6px;
   > .hw_box {
     > .myclock {
       font-size: 18px;
-      font-family: 'hackNF';
       color: $archblue;
     }
     > .hw_metric {
@@ -205,4 +201,26 @@ $nanofontsize: 6px;
     }
   }
 }
-
+.tv_box{
+      font-size: 35px;
+    > .hw_metric {
+      background: transparent;
+      color: $eggshell;
+      }
+    > .hw_blue {
+      background: transparent;
+      color: $archblue;
+      }
+    > .hw_green {
+      background: transparent;
+      color: green;
+      }
+    > .hw_yellow {
+      background: transparent;
+      color: yellow;
+      }
+    > .hw_red {
+      background: transparent;
+      color: red;
+      }
+  }

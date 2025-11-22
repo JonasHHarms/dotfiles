@@ -1,3 +1,4 @@
+(include "/home/TatenK/.config/eww/helpers.yuck")
 (defvar aurupdates "0" )
 (defvar processes "0")
 (defvar orphans "0")
@@ -18,6 +19,14 @@
 (defpoll updatevars :interval "2s" '~/.config/eww/scripts/updatevars.sh')
 (defpoll ident :interval "5s" '~/.config/eww/scripts/getloc.sh')
 
+(defwindow televisionbar
+    :monitor 1
+  :wm-ignore true
+  :exclusive true
+  :geometry (geometry :width "100%" :height "5%" :anchor "center top")
+  (tvbar)
+    )
+
 (defwindow mybar
   :monitor 0
   :wm-ignore true
@@ -31,6 +40,35 @@
   :exclusive false
   :geometry (geometry :anchor "center left" :x "0.5%" :height "98%")
   (arch_center))
+
+(defwidget tvbar []
+    (centerbox :orientation "h" :class "barbar"
+      (box :orientation "h"  :space-evenly true :spacing 10 :class "tv_box"
+        (label :text "${camstatus == 'CLOSED' ? '' : ''}") 
+        (label :text "${replace(jq(micstatus,'.mute'),'"','') == 'yes' ? '' : ''}" :halign "start" :class "${replace(jq(micstatus,'.mute'),'"','') == 'yes' ? 'hw_metric' : 'hw_metric'}") 
+        (label :text "${volmuted == 'Mute: yes' ? '󰝟 M' : snddev == 'analog-output-speaker' ? '󰓃 ${volume}' : snddev == 'analog-output-headphones' ? '󰋋 ${volume}' : snddev == 'hdmi-output-0' ? '󰽟 ${volume}' : 'ERROR'}" :halign "start" :class "hw_metric") 
+        (label :text "${btstatus == 'off' ? '󰂲' : ''} ${btcount}" :halign "start" :class "${btstatus == 'off' ? 'hw_metric' : 'hw_blue'}") 
+        (label :text "  ${EWW_TEMPS.CORETEMP_PACKAGE_ID_0}" :halign "start" :class "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0 <= 60 ? 'hw_green' :
+                                                                                       EWW_TEMPS.CORETEMP_PACKAGE_ID_0 <= 80 ? 'hw_yellow' : 'hw_red' }")
+        (label :text "    ${round(EWW_CPU.avg,0)}" :halign "start") 
+        (label :text " 󰧑  ${round(EWW_RAM.used_mem_perc,0)}" :halign "start")
+        (label :text " I  ${round(replace(jq(gpustats,'.igpu'),'"',''),0)}" :halign "start") 
+        (label :text " D  ${replace(jq(gpustats,'.dgpu'),'"','')}" :halign "start") 
+        (label :text " E ${replace(jq(gpustats,'.egpu'),'"','')}" :halign "start") )
+      (box :orientation "h"  :class "tv_box" :space-evenly false :spacing 25
+        (label :text "${formattime(EWW_TIME,'%A, %d. %B %Y')}" :class "myclock" )
+        (label :text "${formattime(EWW_TIME,'%H:%M')}" :class "myclock" )
+      )
+        (box :orientation "h" :halign "end" :space-evenly false :spacing 35 :class "tv_box"
+        (label :text "${replace(jq(ident,'.ident'),'"','') == 'Datacamp Limited, DE' ? '󰢏' :
+                        replace(jq(ident,'.ident'),'"','') == 'Tor' ? '' : '!'}" :halign "center")
+        (label :text "󰮯  ${repoupdates > 0 ? repoupdates : '󰸞'}" :halign "start" )
+        (label :text "󰊢  ${aurupdates > 0 ? aurupdates : '󰸞'}" :halign "start" )
+        (label :text "󰮢  ${orphans > 0 ? orphans : '󰸞'}" :halign "start" )
+        (label :text "  ${processes > 0 ? processes : 'E'}" :halign "start")
+        (label :text "${updatevars}" :halign "start")
+      (systray :orientation "h" :prepend-new true :halign "end" :class "systray")))
+         )
 
 (defwidget bar []
     (centerbox :orientation "v" :class "barbar"

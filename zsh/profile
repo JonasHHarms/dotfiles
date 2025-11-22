@@ -1,4 +1,3 @@
-#
 #  My Zshrc
 #   Sets shell enviroment for non login shells 
 
@@ -16,8 +15,8 @@ ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="false"
 HIST_STAMPS="dd.mm.yyyy"
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=100000
+SAVEHIST=100000
 HISTFILE="$HOME/.cache/zsh_history"
 
 # Prompt
@@ -28,8 +27,6 @@ TRAPALRM() {
 }
 export PS1=" %F{blue}%D{%H:%M} | 󰣇 >> %f%~/ %F{blue}>>%f$ "
 
-# alias
-source ~/.config/zsh/aliases
 # opts
 setopt extended_glob
 setopt pushd_ignore_dups
@@ -72,7 +69,6 @@ y() {
 	rm -f -- "$tmp"
 }
 
-source $ZSH/oh-my-zsh.sh
 
 # pnpm
 export PNPM_HOME="/home/TatenK/.local/share/pnpm"
@@ -81,4 +77,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

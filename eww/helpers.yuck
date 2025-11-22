@@ -1,0 +1,86 @@
+
+
+(defwidget graphelper [?type contents ?unit ?icon ?mid ?bad ?factor]
+  (box :space-evenly false :orientation "v" :spacing 0
+    (label :text "${icon}" :class "hw_icon" :style "color: ${contents*factor > bad ? 'red' : contents*factor > mid ? 'yellow' : 'green'}")
+    (overlay 
+      (label :text "${type} ${contents}${unit}" :class "hw_icon" :halign "center")
+      (box :height 10 :class "hw_graph" :halign "center" :width 35
+        (graph  :thickness 2 :value contents :time-range "15m" :min 0 :max 105 :dynamic false :line-style "round" :class "graph_line" :style "color: ${contents*factor > bad ? 'red' : contents*factor > mid ? 'yellow' : 'green'};")))))
+
+(defwidget guibutton [?description enable disable decider decision]
+  (box :space-evenly false :spacing 10 :orientation "h" :halign "start"
+    (label :text "${description}" :halign "start" :class "header1")
+    (box :space-evenly false :spacing 0 :orientation "h" :class "buttongui" :halign "end"
+      (checkbox :onchecked "${enable}" 
+        :onunchecked "${disable}"
+       :checked "${decider == decision ? false : true}"
+        :style "check {color: rgba(0,0,0,0);}" ""))))
+
+(defwidget guislider [desc val change ?max ?flip ?min]
+  (overlay :class "guislider" 
+    (scale :orientation "h"
+      :flipped {flip=='' ? false : flip} 
+      :class "guisliderscale"
+      :value "${val == '' ? 0 : val}"
+      :min {min=='' ? 0 : min} :max {max=='' ? 100 : max}
+      :onchange "${change}")
+    (label :text "${desc}" :halign "start" )))
+
+(defwidget notification [base check]
+  (overlay
+    (label :text "${base}" :class "hw_icon")
+      (label :text "${check == 0 ? "󰸞" : check}" :class {check == 0 ? "uptodate" : "notifyer"})))
+
+(defwidget packageupdater []
+  (box :space-evenly false :spacing 7 :orientation "v" :halign "center"
+    (notification :base "󰮯" :check "${repoupdates}")
+    (notification :base "󰊢" :check "${aurupdates}")
+    (notification :base "󰮢" :check "${orphans}")
+    (label :text ": ${processes}" :class "hw_icon")
+))
+
+(defwidget snddev []
+  (eventbox :onclick "~/eww/target/release/eww open arch_window --toggle" :height 30 :width 40
+    (overlay :halign "center"
+      (progress :orientation "v" :flipped true :class "slider" :value "${volume}")
+      (label :text  "${volmuted == 'Mute: yes' ? '󰝟' : snddev == 'analog-output-speaker' ? '󰓃' : snddev == 'analog-output-headphones' ? '󰋋' : snddev == 'hdmi-output-0' ? '󰽟' : 'ERROR'}"))))
+
+(defwidget hw_center []
+    (box
+    (tooltip 
+      (box :halign "start" :orientation "v"
+        (label :text "Connections" :class "header2" )
+        (box :orientation "h" :space-evenly true :width 350
+          (label :text "Devices")
+          (label :text "Battery")
+          (label :text "Signal"))
+        (scroll :vscroll true
+          (box :orientation "h" 
+            (label :text "${replace(jq(btstatus,'.[].dev'),'"','')}")
+            (label :text "${replace(jq(btstatus,'.[].bat'),'"','')}")
+            (label :text "${replace(jq(btstatus,'.[].sig'),'"','')}")))
+      (box :halign "start" :orientation "v"
+        (label :text "Remembered:" :class "header2" )))
+ (guibutton :description "󰂯" :enable "~/.config/eww/scripts/bluetooth.sh --enable & disown" :disable "~/.config/eww/scripts/bluetooth.sh --disable & disown" :decider "${btstatus}" :decision "off" :halighn "end"))
+  ))
+
+(defwidget brightnessbox []
+    (box :orientation "v" 
+      (label :text "System-Ctl" :class "header1" :halign "start")
+      (packageupdater :halign "center")
+      (guislider :desc "${brightnesslvl == 0 ? '󰛩' :
+                          brightnesslvl < 10 ?  '󱩎' :
+                          brightnesslvl < 20 ?  '󱩏' :
+                          brightnesslvl < 30 ?  '󱩐' :
+                          brightnesslvl < 40 ?  '󱩑' :
+                          brightnesslvl < 50 ?  '󱩒' :
+                          brightnesslvl < 60 ?  '󱩓' :
+                          brightnesslvl < 70 ?  '󱩔' :
+                          brightnesslvl < 80 ?  '󱩕' :
+                          brightnesslvl < 90 ?  '󱩖' : 
+                          brightnesslvl == 100 ? '󰛨' : '󰛨'}" :val brightnesslvl :change "brightnessctl --class=backlight s {}% & ${EWW_CMD} update brightnesslvl={}%" :max 100)
+      (guislider :desc "󰃝" :max 5500 :min {0} :flip false :change `${bluefilter == 0 ? "nohup hyprsunset -t $[6500-{}] & disown & ${EWW_CMD} update bluefilter={}" : "pkill hyprsunset && nohup hyprsunset -t $[6500-{}] & disown & ${EWW_CMD} update bluefilter=$({})"}` :val bluefilter) 
+    (guislider :desc "󰌌" :change "brightnessctl --device=asus::kbd_backlight s {} & ${EWW_CMD} update brightnesskbd=$({})" :max 4 :min 0 :val brightnesskbd)))
+
+;; vim:ft=yuck
