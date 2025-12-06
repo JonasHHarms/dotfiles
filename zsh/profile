@@ -25,7 +25,7 @@ TMOUT=30
 TRAPALRM() {
   zle reset-prompt
 }
-export PS1=" %F{blue}%D{%H:%M} | 󰣇 >> %f%~/ %F{blue}>>%f$ "
+export PS1=" %F{blue}%D{%H:%M}  󰣇  %f%~/ $ "
 
 # opts
 setopt extended_glob

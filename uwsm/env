@@ -24,13 +24,19 @@ export LESS=R\ -N\ --mouse\ --use-color\ -Dd+r\ -Du+b
 export VK_DRIVER_FILES=/usr/share/vulkan/icd.d/nvidia_icd.json
 export XR_RUNTIME_JSON=/usr/share/openxr/1/openxr_monado.json
 export LD_LIBRARY_PATH=$HOME/.steam/steamapps/common/SteamVR:$HOME/.steam/steamapps/common/SteamVR/bin/linux64:$HOME/.steam/steamapps/common/SteamVR/bin/linux64/qt/lib:.local/share/Steam/steamapps/common/SteamVR/bin/linux64/qt/lib/libQt5Multimedia.so.5:$LD_LIBRARY_PATH
-export  XRT_LOG=trace
+export XRT_COMPOSITOR_FORCE_WAYLAND_DIRECT=1
+export VR_OVERRIDE=/opt/xrizer
+export STEAMVR_LH_ENABLE=true
+export PRESSURE_VESSEL_FILESYSTEMS_RW=$XDG_RUNTIME_DIR/monado.pid
+export OXR_PARALLEL_VIEWS=1
+export XRT_COMPOSITOR_FORCE_NVIDIA_DISPLAY=NVIDIA
+export VIT_SYSTEM_LIBRARY_PATH=/usr/lib/libbasalt.so
 
 # GTK
 export GDK_BACKEND=wayland,x11
 export GTK_THEME=dark
 export GTK_USE_PORTAL=1
-export GDK_SCALE=2 #1 was set before might revert
+export GDK_SCALE=1 #1 was set before might revert
 
 # XDG
 export XDG_CURRENT_DESKTOP=Hyprland
@@ -46,11 +52,11 @@ export __VK_LAYER_NV_optimus=NVIDIA_only
 export __GL_GSYNC_ALLOWED=0
 export __GL_VRR_ALLOWED=0
 export GBM_BACKEND=nvidia-drm
-#export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=PCI:13:0:0
+export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=PCI:13:0:0
 
 # QT
-export QT_STYLE_OVERRIDE=kvantum
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_STYLE_OVERRIDE=kvantum-dark
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=0
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 #export QT_QPA_PLATFORM=wayland,x11 ##This setting breaks qt plugin, for now just leave unset
 export QT_QPA_PLATFORMTHEME=hyprqt6engine # qt6ct

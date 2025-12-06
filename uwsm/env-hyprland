@@ -6,7 +6,7 @@ export HYPRLAND_NO_SD_NOTIFY=1
 export HYPRLAND_NO_SD_VARS=1
 
 # Aquamarine
-export AQ_DRM_DEVICES=/dev/dri/card1:/dev/dri/card2:/dev/dri/card0
+export AQ_DRM_DEVICES=/dev/dri/card2:/dev/dri/card1 #:/dev/dri/card0
 export AQ_TRACE=1
 export AQ_FORCE_LINEAR_BLIT=0
 export AQ_MGPU_NO_EXPLICIT=1
