@@ -1,15 +1,23 @@
+# print all chars
+alias ali="bat ~/.config/zsh/aliases"
+
+# remaps
 alias cat="bat"
-alias ali="cat ~/.config/zsh/aliases"
-alias rstudio="/usr/lib/rstudio/rstudio & disown"
-alias clr="clear;fastfetch -l none"
-alias eww="/etc/eww/target/release/eww"
+alias man="man --pager=bat"
+alias grep="rg"
+alias less="bat" # bat automatically opens less as pager respecting its config + color highlighting
 alias cd='z'
-alias ohmyzsh="mate ~/.oh-my-zsh"
-alias reboot="systemctl reboot"
-alias poweroff="systemctl poweroff"
 alias vi="nvim -n"
-alias lls="ls -l --all --human-readable | column -C"
-alias ff="firefox & disown"
-alias fans="asusctl profile --profile-set Quiet"
+alias ls='eza --color=always --icons=always --all --git --mounts --sort=filename --no-quotes --tree --classify=always --grid --color-scale=all --color-scale-mode=gradient --hyperlink --group-directories-first --long --header --binary --changed --no-permissions --no-user'
 alias whoami="whoami && ~/.config/eww/scripts/getloc.sh"
+alias dust="dust --force-colors --depth 1 --skip-total --number-of-lines=500 --reverse --invert-filter='git'"
+
+# Shortcuts
+alias rstudio="/usr/lib/rstudio/rstudio & disown"
+alias eww="/etc/eww/target/release/eww"
+alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ff="firefox & disown"
+alias weather="curl -s 'http://wttr.in/FRA'"
+ 
+ # troubleshooters
 alias networkfix="rmmod mt7925e; modprobe mt7925e"

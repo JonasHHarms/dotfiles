@@ -1,0 +1,182 @@
+#command
+\r         forw-line
+\n         forw-line
+e          forw-line
+j          forw-line
+\kd        forw-line
+^E         forw-line
+^N         forw-line
+k          back-line
+y          back-line
+^Y         back-line
+^K         back-line
+^P         back-line
+J          forw-line-force
+K          back-line-force
+Y          back-line-force
+\ej        forw-newline
+\ek        back-newline
+d          forw-scroll
+^D         forw-scroll
+u          back-scroll
+^U         back-scroll
+\40        forw-screen
+f          forw-screen
+^F         forw-screen
+^V         forw-screen
+\kD        forw-screen
+b          back-screen
+^B         back-screen
+\ev        back-screen
+\kU        back-screen
+z          forw-window
+w          back-window
+\e\40      forw-screen-force
+\eb        back-screen-force
+F          forw-forever
+\eF        forw-until-hilite
+R          repaint-flush
+r          repaint
+^R         repaint
+^L         repaint
+\eu        undo-hilite
+\eU        clear-search
+g          goto-line
+\kh        goto-line
+<          goto-line
+\e<        goto-line
+p          percent
+%          percent
+\e(        left-scroll
+\e)        right-scroll
+\kl        left-scroll
+\kr        right-scroll
+\e{        no-scroll
+\e}        end-scroll
+{          forw-bracket {}
+}          back-bracket {}
+(          forw-bracket ()
+)          back-bracket ()
+[          forw-bracket []
+]          back-bracket []
+\e^F       forw-bracket
+\e^B       back-bracket
+G          goto-end
+\e>        goto-end
+>          goto-end
+\ke        goto-end
+\eG        goto-end-buffered
+=          status
+^G         status
+:f         status
+/          forw-search
+?          back-search
+\e/        forw-search *
+\e?        back-search *
+n          repeat-search
+\en        repeat-search-all
+N          reverse-search
+\eN        reverse-search-all
+^O^N       osc8-forw-search
+^On        osc8-forw-search
+^O^P       osc8-back-search
+^Op        osc8-back-search
+^O^O       osc8-open
+&          filter
+m          set-mark
+M          set-mark-bottom
+\em        clear-mark
+'          goto-mark
+^X^X       goto-mark
+E          examine
+:e         examine
+^X^V       examine
+:n         next-file
+:p         prev-file
+t          next-tag
+T          prev-tag
+:x         index-file
+:d         remove-file
+-          toggle-option
+:t         toggle-option t
+s          toggle-option o
+           ## Use a long option name by starting the
+           ## extra string with ONE dash; eg:
+           ##   s toggle-option -log-file\n
+_          display-option
+|          pipe
+v          visual
+!          shell
+#          pshell
++          firstcmd
+\e[M       mouse
+\e[<       mouse6
+H          help
+h          help
+V          version
+0          digit
+1          digit
+2          digit
+3          digit
+4          digit
+5          digit
+6          digit
+7          digit
+8          digit
+9          digit
+q          quit
+Q          quit
+:q         quit
+:Q         quit
+ZZ         quit
+
+#line-edit
+\t           forw-complete
+\17          back-complete
+\e\t         back-complete
+^L           expand
+^V           literal
+^A           literal
+\el          right
+\kr          right
+\eh          left
+\kl          left
+\eb          word-left
+\e\kl        word-left
+\ew          word-right
+\e\kr        word-right
+\ei          insert
+\ex          delete
+\kx          delete
+\eX          word-delete
+\ekx         word-delete
+\e\b         word-backspace
+\e0          home
+\kh          home
+\e$          end
+\ke          end
+\ek          up
+\ku          up
+\ej          down
+^G           abort
+\e[M         mouse
+\e[<         mouse6
+
+#env
+       EDITOR="nvim"
+       LESSGLOBALTAGS="global"
+       LESSHISTFILE="$HOME/.lesshst"
+       LESSHISTSIZE=100
+       LESSMETAESCAPE="\"
+       LESSSECURE=0
+       LESSSECURE_ALLOW=1
+       LESSSEPARATOR="\"
+       LESS_DATA_DELAY=3000
+       LESS_IS_MORE=0
+       LESS_TERMCAP_BRACKETED_PASTE_START=1
+       LESS_TERMCAP_BRACKETED_PASTE_END=1
+       LESS_TERMCAP_MOUSE_START=1
+       LESS_TERMCAP_MOUSE_END=0
+       SHELL="zsh"
+       LESS=--chop-long-lines --use-color -R -Dd+r -Du+b --status-column --hilite-search --ignore-case --line-numbers --squeeze-blank-lines --mouse
+

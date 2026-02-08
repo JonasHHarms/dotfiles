@@ -1,0 +1,35 @@
+# config file for ripgrep
+--search-zip
+--smart-case
+--crlf
+--encoding=auto
+--engine=auto
+--mmap
+--no-multiline
+--no-multiline-dotall
+--with-filename
+--unicode
+--threads=0
+--no-binary
+--follow
+--glob=!git
+--glob-case-insensitive
+--hidden
+--no-ignore-file-case-insensitive
+--max-depth=100
+--max-filesize=9999G
+--no-require-git
+--no-one-file-system
+#
+# OUTPUT OPTIONS:
+--before-context=0
+--after-context=0
+#        Show NUM lines afterb4 each match.
+--color=always
+--column
+--heading
+--no-include-zero
+--block-buffered
+--line-number
+--null
+--no-trim

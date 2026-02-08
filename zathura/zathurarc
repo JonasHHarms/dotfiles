@@ -1,0 +1,176 @@
+# Options
+set completion-bg "#232323"
+      #  #Defines the background color that is used for command line completion entries
+set completion-fg "#ffffff"
+      #  #Defines the foreground color that is used for command line completion entries
+set completion-group-bg "#000000"
+      #  #Defines the background color that is used for command line completion group elements
+set completion-group-fg "#DEDEDE"
+      # #Defines the foreground color that is used for command line completion group elements
+set completion-highlight-bg "#9FBC00"
+      #  #Defines the background color that is used for the current command line completion element
+set completion-highlight-fg "#232323"
+      #  #Defines the foreground color that is used for the current command line completion element
+set default-bg "#000000"
+      # #Defines the default background color
+set default-fg "#ffffff"
+      #  #Defines the default foreground color
+set font   "monospace normal 9"
+    #  #Defines the font that will be used
+set guioptions 'cshv'
+      #Shows  or hides GUI elements.  If it contains 'c', the command line is displayed.  If it contains 's', the statusbar is displayed.  If it contains 'h', the horizontal scrollbar is displayed.  If it contains 'v', the vertical  scrollbar  is displayed.
+set inputbar-bg "#121212"
+      # #Defines the background color for the inputbar
+set inputbar-fg "#9FBC00"
+       #Defines the foreground color for the inputbar
+set notification-bg "#FFFFFF"
+       #Defines the background color for a notification
+set notification-fg "#000000"
+       #Defines the foreground color for a notification
+set notification-error-bg "#FF1212"
+       #Defines the background color for an error notification
+set notification-error-fg "#FFFFFF"
+       #Defines the foreground color for an error notification
+set notification-warning-bg "#FFF712"
+       #Defines the background color for a warning notification
+set notification-warning-fg "#ffffff"
+       #Defines the foreground color for a warning notification
+set statusbar-bg "#000000"
+       #Defines the background color of the statusbar
+set statusbar-fg "#ffffff"
+       #Defines the foreground color of the statusbar
+set statusbar-h-padding 8
+       #Defines the horizontal padding of the statusbar and notificationbar
+set statusbar-v-padding 2
+       #Defines the vertical padding of the statusbar and notificationbar
+
+
+# This section describes settings concerning the behaviour of zathura.
+set abort-clear-search "false"
+       #Defines if the search results should be cleared on abort.
+set adjust-open "best-fit"
+       #Defines  which  auto  adjustment  mode  should  be  used  if a document is loaded.  Possible options are "best-fit" and "width".
+set advance-pages-per-row "true"
+       #Defines if the number of pages per row should be honored when advancing a page.
+set continuous-hist-save "false"
+       # Tells zathura whether to save document history at each page change or only when closing a document.
+set database "sqlite"
+       #Defines the database backend to use for bookmarks and input history. Possible values are "sqlite" and "null". If "null" is used, bookmarks and input history will not be stored.
+set dbus-raise-window "true"
+      # #Defines whether zathura's window should be raised when receiving certain commands via D-Bus.
+set dbus-service "true"
+       #En/Disables the D-Bus service. If the services is disabled, SyncTeX forward synchronization is not available.
+set double-click-follow "false"
+       #Defines whether double or single click on a link should trigger follow.
+set filemonitor "glib"
+       #Defines the file monitor backend used to check for changes in files. Possible values are "glib",  "signal"  (if  signal handling is supported), and "noop". The "noop" file monitor does not trigger reloads.
+set first-page-column 1:2
+       #Defines  the  column  in  which the first page will be displayed.  This setting is stored separately for every value of pages-per-row according to the following pattern <1 page per row>:[<2 pages per row>[: ...]]. The  last  value  in  the list will be used for all other number of pages per row if not set explicitly. Per  default, the first column is set to 2 for double-page layout, i.e. the value is set to 1:2. A value of 1:1:3 would put the first page in dual-page layout in the first column, and for layouts with more columns the first page  would  be put in the 3rd column.
+set highlight-active-color "rgba(0,188,0,0.5)"
+       #Defines the color that is used to show the current selected highlighted element (e.g: current search result)
+set highlight-color "rgba(159,251,0,0.5)"
+       #Defines the color that is used for highlighting parts of the document (e.g.: show search results)
+set highlight-fg "rgba(0,0,0,0.5)"
+       #Defines the color that is used for text when highlighting parts of the document (e.g.: number for links).
+set highlighter-modifier "shift"
+       #Defines  the  modifier  that  needs to be pressed together with the left mouse button to draw the highlighter. Possible values are "shift", "ctrl" and "alt".
+set incremental-search "true"
+       #En/Disables incremental search (search while typing).
+set jumplist-size 2000
+      # Maximum number of positions to remember in the jumplist.
+set link-hadjust "true"
+       #En/Disables aligning to the left internal link targets, for example from the index.
+set link-zoom "true"
+       #En/Disables the ability of changing zoom when following links.
+set nohlsearch "false"
+      # Dis/Enables the highlighting of search results.
+set open-first-page "false"
+      # Always open documents on the first page. If disabled, zathura will jump to the last remembered position.
+set page-cache-size 15
+       #Defines the maximum number of pages that could be kept in the page cache. When the cache is full and a  new  page  that isn't cached becomes visible, the least recently viewed page in the cache will be evicted to make room for the new one. Large  values  for  this variable are NOT recommended, because this will lead to consuming a significant portion of the system memory. •  15
+set page-v-padding 1
+      # Vertical page padding defines the vertical gap in pixels between each rendered page.
+set page-h-padding 1
+      #Horizontal page padding defines the horizontal gap in pixels between each rendered page.
+set page-right-to-left "false"
+       #Defines whether pages in multi-column view should start from the right side.
+set page-thumbnail-size 4194304 
+       #Defines the maximum size in pixels of the thumbnail that could be kept in the thumbnail cache per page.  The  thumbnail is  scaled  for  a  quick  preview during zooming before the page is rendered. When the page is rendered, the result is saved as the thumbnail only if the size is no more than this value. A larger value  increases  quality  but  introduces longer delay in zooming and uses more system memory. •  (4M)
+set pages-per-row 1
+       #Defines the number of pages that are rendered next to each other in a row.
+set recolor "true"
+       #En/Disables recoloring
+set recolor-adjust-lightness "true"
+       #En/Disables adjusting lightness when recoloring.
+set recolor-darkcolor "#FFFFFF"
+       #Defines the color value that is used to represent dark colors in recoloring mode
+set recolor-keephue "true"
+       #En/Disables keeping original hue when recoloring
+set recolor-lightcolor "#000000"
+       #Defines the color value that is used to represent light colors in recoloring mode
+set recolor-reverse-video "false"
+       #Defines if original image colors should be kept while recoloring.
+set render-loading "true"
+       #Defines if the "Loading..." text should be displayed if a page is rendered.
+set render-loading-bg "#000000"
+       #Defines the background color that is used for the "Loading..." text.
+set render-loading-fg "#ffffff"
+       #Defines the foreground color that is used for the "Loading..." text.
+set scroll-full-overlap 0
+       #Defines the proportion of the current viewing area that should be visible after scrolling a full page.
+set scroll-hstep -1
+       #Defines the horizontal step size of scrolling by calling the scroll command once
+set scroll-step 40
+       #Defines the step size of scrolling by calling the scroll command once
+set scroll-page-aware "true"
+       #Defines if scrolling by half or full pages stops at page boundaries.
+set scroll-wrap "false"
+       #Defines if the last/first page should be wrapped
+set search-hadjust "false"
+       #En/Disables horizontally centered search results.
+#set selection-clipboard "primary"
+       #Defines  the X clipboard into which mouse-selected data will be written.  When it is "clipboard", selected data will be written to the CLIPBOARD clipboard, and can be pasted using the Ctrl+v key combination.  When it is "primary", selected data will be written to the PRIMARY clipboard, and can be pasted using the middle mouse button, or the Shift-Insert key combination.
+set selection-notification "true"
+       #Defines if a notification should be displayed after selecting text.
+set signature-error-color "rgba(92%,11%,14%,0.9)"
+       #Defines the background color when displaying additional information for signatures with errors.
+set signature-success-color "rgba(18%,80%,33%,0.9)"
+       #Defines the background color when displaying additional information for valid signatures.
+set signature-warning-color "rgba(100%,84%,0%,0.9)"
+       #Defines the background color when displaying additional information for signatures with warnings.
+set show-directories "true"
+       #Defines if the directories should be displayed in completion.
+set show-hidden "true"
+       #Defines if hidden files and directories should be displayed in completion.
+set show-recent 10
+       #Defines the number of recent files that should be displayed in completion.  If the value is negative, no  upper  bounds are applied. If the value is 0, no recent files are shown.
+set show-signature-information "false"
+       #Defines whether additional information on signatures embedded in documents should be displayed.
+set statusbar-basename "false"
+      # Use basename of the file in the statusbar.
+set statusbar-home-tilde "false"
+       #Display  a short version of the file path, which replaces $HOME with ~, in the statusbar.
+set statusbar-page-percent "false"
+       #Display  (current page / total pages) as a percent in the statusbar.
+set synctex "true"
+       #En/Disables SyncTeX backward synchronization support.
+set synctex-edit-modifier "ctrl"
+       #Defines  the modifier that needs to be pressed together with the left mouse button to trigger the SyncTeX backward syn‐ chronization. Possible values are "shift", "ctrl" and "alt".
+set vertical-center "true"
+      # Center the screen at the vertical midpoint of the page by default.
+set window-icon-document "false"
+       #Defines whether the window document should be updated based on the first page of a dcument.
+set window-title-basename "false"
+      #Use basename of the file in the window title.
+set window-title-home-tilde "true"
+       #Display  a short version of the file path, which replaces $HOME with ~, in the window title.
+set window-title-page "true"
+       #Display  the page number in the window title.
+set zoom-center "true"
+       #En/Disables horizontally centered zooming.
+set zoom-max 1000
+       #Defines the maximum percentage that the zoom level can be.
+set zoom-min 10
+       #Defines the minimum percentage that the zoom level can be.
+set zoom-step 10
+       #Defines the amount of percent that is zoomed in or out on each command.

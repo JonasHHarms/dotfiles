@@ -1,0 +1,12 @@
+--theme gruvbox-dark
+--color always
+--style full
+--decorations always
+--italic-text always
+--pager less
+--paging always
+--nonprintable-notation unicode
+--tabs 4
+--squeeze-blank
+--strip-ansi auto
+--chop-long-lines
