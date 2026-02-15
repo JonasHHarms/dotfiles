@@ -2,16 +2,21 @@
 # UWSM
 export UWSM_WAIT_VARNAMES=${UWSM_WAIT_VARNAMES}\ FINALIZED
 export APP2UNIT_SLICES=a=app-graphical.slice\ b=background-graphical.slice\ s=session-graphical.slice
+export DE=generic
+export WINDOW_MANAGER=Hyprland
+export DROWSER=firefox
+export LANG=en_US.UTF-8
 
 # Wayland
-#export WAYLAND_DISPLAY=
+#export WAYLAND_DISPLAY= # This gets set automatically by session
 #export SDL_VIDEODRIVER=wayland,x11,* # This likes to break my windows
 export CLUTTER_BACKEND=wayland
 export MOZ_ENABLE_WAYLAND=1
 
 # Shell
 export EDITOR=nvim
-export VISUAL=bat
+export VISUAL=nvim
+export TERMINAL=xterm-ghostty
 export TERM=xterm-ghostty
 export TERMCMD=ghostty
 export ZSH=$HOME/.oh-my-zsh
