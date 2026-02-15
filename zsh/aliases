@@ -7,6 +7,7 @@ alias man="man --pager=bat"
 alias grep="rg"
 alias less="bat" # bat automatically opens less as pager respecting its config + color highlighting
 alias cd='z'
+alias fuck='ups'
 alias vi="nvim -n"
 alias ls='eza --color=always --icons=always --all --git --mounts --sort=filename --no-quotes --tree --classify=always --grid --color-scale=all --color-scale-mode=gradient --hyperlink --group-directories-first --long --header --binary --changed --no-permissions --no-user'
 alias whoami="whoami && ~/.config/eww/scripts/getloc.sh"
