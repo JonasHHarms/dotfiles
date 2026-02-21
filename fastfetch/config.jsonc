@@ -1,24 +1,62 @@
 {
     "logo": {
-         "source": "./logo.txt"
+        "type": "file", 
+        "source": "$HOME/.config/fastfetch/logo.txt"
      },
+     "display": {
+        "separator": ": ",     // Separator between keys and values
+        "color": {
+            "keys": "blue",    // Key color
+            "title": "red"     // Title color
+        },
+        "key": {
+            "width": 12,       // Aligns keys to this width
+            "type": "string"   // string, icon, both, or none
+        },
+        "bar": {
+            "width": 10,       // Width of percentage bars
+            "char": {
+                "elapsed": "■", // Character for elapsed portion
+                "total": "-"    // Character for total portion
+            }
+        },
+        "percent": {
+            "type": 9,         // 1=number, 2=bar, 3=both, 9=colored number
+            "color": {
+                "green": "green",
+                "yellow": "light_yellow",
+                "red": "light_red"
+            }
+        }
+},
   "modules": [
-    "battery",
-    "uptime",
-    {
-      "type":"command",
-      "key": "Age",
-      "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
-    },
-    "packages",
-    "font",
-    "cursor",
-    "cpu",
-    "kernel",
-    "memory",
-    "swap",
-    "display",
-    "gpu",
-    "disk"
-     ]
+        "battery",
+        "uptime",
+        {
+          "type":"command",
+          "key": "Age",
+          "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
+        },
+        "packages",
+        "font",
+        "cursor",
+        "cpu",
+        {
+          "type": "kernel",
+          "key": "Kernel"
+        },
+        {
+        "type": "memory",
+        "key": "Memory",
+        "percent": {
+            "type": 3,     // Show both percentage number and bar
+            "green": 30,   // Values below 30% in green
+            "yellow": 70   // 30-70% in yellow, >70% in red
+            }
+        },
+        "swap",
+        "display",
+        "gpu",
+        "disk"
+         ]
 }

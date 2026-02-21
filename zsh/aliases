@@ -3,9 +3,7 @@ alias ali="bat ~/.config/zsh/aliases"
 
 # remaps
 alias cat="bat"
-alias man="man --pager=bat"
 alias grep="rg"
-alias less="bat" # bat automatically opens less as pager respecting its config + color highlighting
 alias cd='z'
 alias fuck='ups'
 alias vi="nvim -n"
@@ -14,6 +12,8 @@ alias whoami="whoami && ~/.config/eww/scripts/getloc.sh"
 alias dust="dust --force-colors --depth 1 --skip-total --number-of-lines=500 --reverse --invert-filter='git'"
 alias history="mcfly --history_format=zsh search"
 alias pastel="pastel --color-picker hyprpicker"
+alias ddgr="ddgr --num=25 --reg=us-en --unsafe --noua --reverse --colors=oCdgxy"
+alias newsboat="newsboat --config-file=$HOME/.config/newsboat/config --url-file=$HOME/.config/newsboat/urls"
 
 # Shortcuts
 alias rstudio="/usr/lib/rstudio/rstudio & disown"
@@ -21,6 +21,5 @@ alias eww="/etc/eww/target/release/eww"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ff="firefox & disown"
 alias weather="curl -s 'http://wttr.in/FRA'"
- 
  # troubleshooters
 alias networkfix="rmmod mt7925e; modprobe mt7925e"

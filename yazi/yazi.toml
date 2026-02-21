@@ -22,7 +22,8 @@ ueberzug_offset = [ 0.5, 0.5, -0.5, -0.5 ]
 
 [opener]
 play     = [ { run = 'mpv %s', orphan = true, block = false, desc = "Play" } ]
-vrplay     = [ { run = 'vr-video-player %s', orphan = true, block = false, desc = "Play in VR" } ]
+view     = [ { run = 'magick %s', orphan = true, block = false, desc = "View Image" } ]
+vrplay   = [ { run = 'vr-video-player %s', orphan = true, block = false, desc = "Play in VR" } ]
 edit     = [ { run = 'nvim %s', orphan = false, block = true, desc = "Edit" } ]
 extract  = [ { run = 'uz %s', orphan = true, block = true, desc = "Extract"} ]
 read     = [ { run = 'zathura %s', orphan = true, block = false, desc = "Read" } ]
@@ -34,8 +35,8 @@ rules = [
     { url = "vr/*.mp4", use = "vrplay" },
     { url = "*.mp4", use = "play" },
     { url = "*.mp3", use = "play" },
-    { url = "*.png", use = "play" },
-    { url = "*.jpg", use = "play" },
+    { url = "*.png", use = "view" },
+    { url = "*.jpg", use = "view" },
     { url = "*.json", use = [ "edit" ] },
     { url = "*.html", use = [ "open", "edit" ] },
     { mime = "text/*", use = [ "edit" ] },

@@ -44,7 +44,7 @@
              password_prompt: ["gnome-keyring-query", "get", "{id_uuid}"] # [string|list] Set command to retrieve passwords. If specified as a list it defines the ARGV array for the program call. If specified as a string, it will be expanded in a shell-like manner. Each string will be formatted using ‘str.format‘. For a list of device attributes, see below. The two special string values "builtin:gui" and "builtin:tty" signify to use udiskie's builtin password prompt.
              event_hook: "zenity --info --text '{event}: {device_presentation}'" # [string|list] Set command to be executed on any device event. This is specified like ‘password_prompt‘.
 
-           device_config:
+           #device_config:
              # List of device option rules. Each item can match any combination of device attributes. Additionally, it defines the resulting action (see below).
              # Any rule can contain multiple filters (AND) and multiple actions.
              # Only the first matching rule that defines a given action is used.

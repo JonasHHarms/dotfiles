@@ -1,74 +1,82 @@
 [global]
-    #monitor = 0
-    # Display notification on focused monitor.  Possible modes are: mouse: follow mouse pointer keyboard: follow window with keyboard focus none: don't follow anything
-    follow = mouse
-    origin = top-right
-        offset = (3, 62)
-    title = Dunst
-    class = Dunst
-    corners = all
-    corner_radius = 11
-    scale = 0
-    indicate_hidden = yes
-    notification_limit = 0
-    progress_bar = false
-        progress_bar_height = 1
-        progress_bar_frame_width = 0
-        progress_bar_corner_radius = 1
-        progress_bar_corners = all
-    icon_position = off
-        icon_corner_radius = 10
+    title = Dunst                        # might be x11 only
+    class = Dunst                        # might be x11 only
+    follow = keyboard                    # Display on monitor: none, mouse, keyboard: follow window with keyboard 
+    origin = top-right                   # Position the notification
+        width = (0,300)                  # The width of the window, excluding the frame.
+        height = (0,300)                 # The height of a single notification, excluding the frame.
+        offset = (10, 62)                # Offset from the origin
+    corners = all                        # Define which corners to round when drawing the window. If the corner radius is set to 0 this option will be ignored. Comma-separated list of the corners. The accepted corner values are bottom-righ> bottom-left, top-right, top-left, top, bottom, left, right or all.
+    corner_radius = 11                   # Define the corner radius of the notification window in pixel size. If the radius is 0, you have no rounded
+    scale = 0                            # Scale factor. It is auto-detected if value is 0.
+    indicate_hidden = yes                # Show how many messages are currently hidden (because of notification_limit).
+    notification_limit = 0               # Maximum number of notification (0 means no limit)
+    progress_bar = true                  # Turn on the progress bar. It appears when a progress hint is passed with for example dunstify -h int:value:12
+        progress_bar_height = 20         # Set the progress bar height. This includes the frame, so make sure it's at least twice as big as the frame width.
+        progress_bar_frame_width = 1     # Set the frame width of the progress bar
+        progress_bar_corner_radius = 0   # Corner radius for the progress bar. 0 disables rounded corners.
+        progress_bar_corners = all       # Define which corners to round when drawing the progress bar. If set to 0 this option will be ignored.
+        progress_bar_frame_width = 1     # Set the frame width of the progress bar
+        progress_bar_min_width = 150     # Set the minimum width for the progress bar
+        progress_bar_max_width = 300     # Set the maximum width for the progress bar
+    icon_position = left                 # Align icons left/right/top/off
+        icon_corner_radius = 0           # Corner radius for the icon image.
         icon_corners = all
-        enable_recursive_icon_lookup = true
-        min_icon_size = 32
-        max_icon_size = 128
+        enable_recursive_icon_lookup = true # Recursive icon lookup. You can set a single theme, instead of having to define all lookup paths.
+        min_icon_size = 32               # Scale small icons up to this size, set to 0 to disable.
+        max_icon_size = 128              # Scale larger icons down to this size, set to 0 to disable
         icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-    separator_height = 2
-        padding = 5
-    horizontal_padding = 5
-    text_icon_padding = 0
+        icon_theme = "Adwaita, breeze"   # You can also set multiple icon themes, with the leftmost one being used first.
+    horizontal_padding = 5               # Horizontal padding.
+    text_icon_padding = 0                # Padding between text and icon.
+    frame_color = "#1793d1"              # Defines color of the frame around the notification window.
+    padding = 5                          # Padding between text and separator.
+    separator_height = 2                 # Draw a line of "separator_height" pixel height between two notifications. Set to 0 to disable.
+    gap_size = 0                         # Size of gap to display between notifications - requires a compositor. If value is greater than 0, separator_height will be ignored and a border of size frame_width will be drawn around each notification instead. Click events on gaps do not currently propagate to applications below.
     frame_width = 1
-        frame_color = "#1793d1"
-    gap_size = 0
-    separator_color = "#1793d1"
-    sort = update
-    idle_threshold = 120
+    separator_color = frame              # auto: dunst tries to find a color fitting to the background; * foreground: use the same color as the foreground; * frame: use the same color as the frame; * anything else will be interpreted as a X color.
+    sort = urgency_descending            # id: sort by id * urgency_ascending: sort by urgency (low then normal then critical) * urgency_descending: sort by urgency (critical then normal then low) * update: sort by update (most recent always at the top)
+    idle_threshold = 0                   # Don't remove messages, if the user is idle (no mouse or keyboard input)
     font = IosevkaNF 12
-    line_height = 0
-    markup = full
-    format = "<b>%a</b>\n%s\n%b" # %a  appname %s  summary %b  body %i  iconname (including path) %I  iconname (without path) %p  progress ([  0%] to [100%]) %n  progress value without %%  Literal %
-    alignment = left
-    vertical_alignment = center
-    show_age_threshold = -1
-    ellipsize = end
-    ignore_newline = no
-    stack_duplicates = true
-    hide_duplicate_count = false
-    show_indicators = yes
-    sticky_history = yes
-    history_length = 20
-    dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/xdg-open
-    always_run_script = true
-    ignore_dbusclose = false
-    layer = top
-    force_xwayland = true
-    force_xinerama = false
+    transparency = 0                     # x11 only according to man
+    line_height = 0                      # The spacing between lines.  If the height is smaller than the font height, it will get raised to the font height.
+    markup = full                        # html
+    format = "<b>%a</b>\n%s\n%b"         # %a  appname %s  summary %b  body %i  iconname (including path) %I  iconname (without path) %p  progress ([  0%] to [100%]) %n  progress value without %%  Literal %
+    alignment = left                     # Alignment of message text. Possible values are "left", "center" and "right".
+    vertical_alignment = center          # Vertical alignment of message text and icon.
+    show_age_threshold = -1              # Show age of message if message is older than show_age_threshold seconds. Set to -1 to disable.
+    ellipsize = end                      # Specify where to make an ellipsis in long lines. Possible values are "start", "middle" and "end".
+    ignore_newline = no                  # Ignore newlines '\n' in notifications.
+    stack_duplicates = true              # Stack together notifications with the same content
+    hide_duplicate_count = false         # Hide the count of stacked notifications with the same content
+    show_indicators = yes                # Display indicators for URLs (U) and actions (A).
+    sticky_history = yes                 # Should a notification popped up from history be sticky or timeout
+    history_length = 20                  # Maximum amount of notifications kept in history
+    dmenu = /usr/bin/wofi --show_dmenu dunst # dmenu
+    browser = /usr/bin/xdg-open          # Urls in default browser
+    always_run_script = true             # Always run rule-defined scripts, even if the notification is suppressed
+    ignore_dbusclose = false             # Ignore the dbus closeNotification message. Useful to enforce the timeout set by dunst configuration. Without this parameter, an application may close the notification sent before the user defined timeout.
+    layer = overlay                      # Show over fullscreen apps
+    force_xwayland = true                # use X11 output on Wayland.
+    force_xinerama = false               # Legacy dont use
     mouse_left_click = do_action, close_current  # * none: Don't do anything. * do_action: Invoke the action determined by the action_name rule. If there is no such action, open the context menu. * open_url: If the notification has exactly one url, open it. If there are multiple ones, open the context menu. * close_current: Close current notification. * close_all: Close all notifications. * context: Open context menu for the notification. * context_all: Open context menu for all notifications. These values can be strung together for each mouse event, and will be executed in sequence.
+    mouse_middle_click = close_all
     mouse_right_click = close_current
-    fullscreen = show
+
 [experimental]
-   # per_monitor_dpi = true
+    per_monitor_dpi = true              # If this setting is enabled the Xft.dpi value will be ignored and instead dunst will attempt to calculate an appropriate dpi value for each monitor using the resolution and physical size. 
 
 [urgency_low]
     background = "#000000"
     foreground = "#f0ead6"
     timeout = 10
+    default_icon = dialog-information
 
 [urgency_normal]
     background = "#000000"
     foreground = "#f0ead6"
     timeout = 10
+    default_icon = dialog-information
 
 [urgency_critical]
     background = "#000000"
@@ -76,6 +84,7 @@
     frame_color = "#ff0000"
     timeout = 0
     override_pause_level = 60
+    default_icon = dialog-warning
 
 # Messages can be matched by
 #    appname (discouraged, see desktop_entry)
@@ -113,22 +122,17 @@
 # NOTE: It might be helpful to run dunst -print in a terminal in order
 # to find fitting options for rules.
 
-#[transient_disable]
-#    match_transient = yes
-#    set_transient = no
-#
-#[transient_history_ignore]
-#    match_transient = yes
-#    history_ignore = yes
+[transient_disable]
+    match_transient = yes
+    set_transient = no
 
-#[fullscreen_delay_everything]
-#    fullscreen = delay
-#[fullscreen_show_critical]
-#    msg_urgency = critical
+[transient_history_ignore]
+    match_transient = yes
+    history_ignore = yes
 
 #[espeak]
-#    summary = "*"
-#    script = dunst_espeak.sh
+ #   summary = "*"
+  #  script = dunst_espeak.sh
 
 #[script-test]
 #    summary = "*script*"
@@ -159,18 +163,8 @@
 #    summary = *signed off*
 #    urgency = low
 #
-#[says]
-#    appname = Pidgin
-#    summary = *says*
-#    urgency = critical
-#
-#[twitter]
-#    appname = Pidgin
-#    summary = *twitter.com*
-#    urgency = normal
-#
 #[stack-volumes]
 #    appname = "some_volume_notifiers"
 #    set_stack_tag = "volume"
-#
+
 # vim: ft=cfg

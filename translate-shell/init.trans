@@ -1,0 +1,23 @@
+{
+ :verbose                    false
+ :dictionary                 true
+ :hl                         "en"
+ :tl                         ["de" "fr" "zh"]
+ :show-original              true
+ :show-original-phonetics    true
+ :show-translation           true
+ :show-translation-phonetics true
+ :show-prompt-message        true
+ :show-languages             true
+ :show-original-dictionary   true
+ :show-dictionary            true
+ :show-alternatives          true
+ :indent                     2
+ :play                       false
+ :speak                      false
+ :player                     "mpv"
+ :pager                      "less"
+ :no-browser                 true
+ :engine                     "bing"
+ }
+

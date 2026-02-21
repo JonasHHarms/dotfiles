@@ -16,6 +16,7 @@ export MOZ_ENABLE_WAYLAND=1
 # Shell
 export EDITOR=nvim
 export VISUAL=nvim
+export PAGER=nvim
 export TERMINAL=xterm-ghostty
 export TERM=xterm-ghostty
 export TERMCMD=ghostty
@@ -27,9 +28,14 @@ export KITTY_ENABLE_WAYLAND=1
 export RIPGREP_CONFIG_PATH=~/.config/.ripgreprc
 export PROGRESS_ARGS="--monitor-continuously"
 export PNPM_HOME="/home/TatenK/.local/share/pnpm"
+export PARU_CONF="$HOME/.config/paru.conf"
 
 # FZF
 export FZF_DEFAULT_OPTS_FILE=$HOME/.config/fzf.conf
+
+# ImageMagick
+export MAGICK_CONFIGURE_PATH=$HOME/.config/
+
 # Mcfly
 export FLY_HISTORY=$HOME/Documents/logging/mcfly.history
 export MCFLY_SESSION_ID=0 # hope this doesnt break it
