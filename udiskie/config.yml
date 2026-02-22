@@ -35,7 +35,7 @@
    file_manager:     yazi      # [string] Set program to open directories. It will be invoked with the folder path as its last command line argument.
    terminal:         'ghostty' # [string] Set terminal command line to open directories. It will be invoked with the folder path as its last command line argument.
    #password_prompt: ["gnome-keyring-query", "get", "{id_uuid}"] # [string|list] Set command to retrieve passwords. If specified as a list it defines the ARGV array for the program call. If specified as a string, it will be expanded in a shell-like manner. Each string will be formatted using ‘str.format‘. For a list of device attributes, see below. The two special string values "builtin:gui" and "builtin:tty" signify to use udiskie's builtin password prompt.
-   event_hook: "dunstify" # [string|list] Set command to be executed on any device event. This is specified like ‘password_prompt‘.
+   #event_hook: "dunstify" # [string|list] Set command to be executed on any device event. This is specified like ‘password_prompt‘.
 
  notifications:
    # Customize which notifications are shown for how long. positive number = timeout in seconds; false  = disable; -1 use the libnotify default timeout
