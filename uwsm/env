@@ -4,7 +4,7 @@ export UWSM_WAIT_VARNAMES=${UWSM_WAIT_VARNAMES}\ FINALIZED
 export APP2UNIT_SLICES=a=app-graphical.slice\ b=background-graphical.slice\ s=session-graphical.slice
 export DE=generic
 export WINDOW_MANAGER=Hyprland
-export DROWSER=firefox
+export BROWSER=firefox
 export LANG=en_US.UTF-8
 
 # Wayland
@@ -14,32 +14,30 @@ export CLUTTER_BACKEND=wayland
 export MOZ_ENABLE_WAYLAND=1
 
 # Shell
-export EDITOR=vi
-export VISUAL=vi
-export PAGER=vi
+export EDITOR=vim
+export VISUAL=vim
+export PAGER=vim
 export TERMINAL=xterm-ghostty
 export TERM=xterm-ghostty
-export TERMCMD=ghostty
+export TERMCMD=foot
 export ZSH_THEME="robbyrussell"
 export ZSH=$HOME/.oh-my-zsh
 export MANPATH=/usr/local/man:$MANPATH
 export ARCHFLAGS=-arch\ $(uname -m)
 export LESS=R\ -N\ --mouse\ --use-color\ -Dd+r\ -Du+b
 export KITTY_ENABLE_WAYLAND=1
-export RIPGREP_CONFIG_PATH=~/.config/.ripgreprc
 export PROGRESS_ARGS="--monitor-continuously"
+
+# Config Paths
+export RIPGREP_CONFIG_PATH=~/.config/.ripgreprc
 export PNPM_HOME="/home/TatenK/.local/share/pnpm"
 export PARU_CONF="$HOME/.config/paru.conf"
-
-# FZF
 export FZF_DEFAULT_OPTS_FILE=$HOME/.config/fzf.conf
-
-# ImageMagick
 export MAGICK_CONFIGURE_PATH=$HOME/.config/
 
 # Mcfly
 export FLY_HISTORY=$HOME/Documents/logging/mcfly.history
-export MCFLY_SESSION_ID=0 # hope this doesnt break it
+export MCFLY_SESSION_ID=1 # hope this doesnt break it
 export MCFLY_FUZZY=2
 export MCFLY_RESULTS=50
 export MCFLY_DELETE_WITHOUT_CONFIRM=true
@@ -51,18 +49,18 @@ export MCFLY_HISTORY_LIMIT=10000
 
 # Steam / VR
 #export VK_DRIVER_FILES=/usr/share/vulkan/icd.d/nvidia_icd.json
-export XR_RUNTIME_JSON=/usr/share/openxr/1/openxr_monado.json
-export LD_LIBRARY_PATH=$HOME/.steam/steamapps/common/SteamVR:$HOME/.steam/steamapps/common/SteamVR/bin/linux64:$HOME/.steam/steamapps/common/SteamVR/bin/linux64/qt/lib:.local/share/Steam/steamapps/common/SteamVR/bin/linux64/qt/lib/libQt5Multimedia.so.5:$LD_LIBRARY_PATH
-export XRT_COMPOSITOR_FORCE_WAYLAND_DIRECT=1
-export XRT_COMPOSITOR_USE_PRESENT_WAIT=1
-export U_PACING_COMP_TIME_FRACTION_PERCENT=90
-export VR_OVERRIDE=/opt/xrizer
-export STEAMVR_LH_ENABLE=true
-export PRESSURE_VESSEL_FILESYSTEMS_RW=$XDG_RUNTIME_DIR/monado.pid
-export OXR_PARALLEL_VIEWS=1
+#export XR_RUNTIME_JSON=/usr/share/openxr/1/openxr_monado.json
+#export LD_LIBRARY_PATH=$HOME/.steam/steamapps/common/SteamVR:$HOME/.steam/steamapps/common/SteamVR/bin/linux64:$HOME/.steam/steamapps/common/SteamVR/bin/linux64/qt/lib:.local/share/Steam/steamapps/common/SteamVR/bin/linux64/qt/lib/libQt5Multimedia.so.5:$LD_LIBRARY_PATH
+#export XRT_COMPOSITOR_FORCE_WAYLAND_DIRECT=1
+#export XRT_COMPOSITOR_USE_PRESENT_WAIT=1
+#export U_PACING_COMP_TIME_FRACTION_PERCENT=90
+#export VR_OVERRIDE=/opt/xrizer
+#export STEAMVR_LH_ENABLE=true
+#export PRESSURE_VESSEL_FILESYSTEMS_RW=$XDG_RUNTIME_DIR/monado.pid
+#export OXR_PARALLEL_VIEWS=1
 #export XRT_COMPOSITOR_FORCE_NVIDIA_DISPLAY=NVIDIA
-export VIT_SYSTEM_LIBRARY_PATH=/usr/lib/libbasalt.so
-export WLR_NO_HARDWARE_CURSORS=1
+#export VIT_SYSTEM_LIBRARY_PATH=/usr/lib/libbasalt.so
+#export WLR_NO_HARDWARE_CURSORS=1
 
 # GTK
 export GDK_BACKEND=wayland,x11
@@ -77,14 +75,14 @@ export XDG_SESSION_DESKTOP=Hyprland
 
 # Nvidia
 #export LIBVA_DRIVER_NAME=nvidia
-export NVD_BACKEND=direct
-export __NV_PRIME_RENDER_OFFLOAD=1
+#export NVD_BACKEND=direct
+#export __NV_PRIME_RENDER_OFFLOAD=1
 #export __GLX_VENDOR_LIBRARY_NAME=nvidia
 #export __VK_LAYER_NV_optimus=NVIDIA_only
-export __GL_GSYNC_ALLOWED=0
-export __GL_VRR_ALLOWED=0
+#export __GL_GSYNC_ALLOWED=0
+#export __GL_VRR_ALLOWED=0
 #export GBM_BACKEND=nvidia-drm
-export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=PCI:13:0:0
+#export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=PCI:13:0:0
 
 
 # QT
