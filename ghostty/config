@@ -108,7 +108,3 @@ theme=Monokai Remastered
 #theme=Tomorrow Night Bright
 #theme=Vibrant Ink
 
-command-palette-entry = title:Copy to Clipboard,description:Copy the selected text to the clipboard.,action:copy_to_clipboard
-command-palette-entry = title:Paste from Clipboard,description:Paste the contents of the main clipboard.,action:paste_from_clipboard
-command-palette-entry = title:Reload Config,description:Reload the config file.,action:reload_config
-command-palette-entry = title:Show On-Screen Keyboard,description:Show the on-screen keyboard if present.,action:show_on_screen_keyboard
