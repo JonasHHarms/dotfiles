@@ -10,10 +10,11 @@ export default function Systray() {
     })
     const win = new Gtk.Window({
       title: "Systray",
-      defaultWidth: 300,
+      defaultWidth: 150,
       defaultHeight: 50,
       decorated: true,
     })
+    win.set_name("Systray")
 
     function Tray() {
       const tray = AstalTray.get_default()
@@ -37,14 +38,16 @@ export default function Systray() {
         </box>
         )
       }
+
   const content = (
+    <box orientation={Gtk.Orientation.VERTICAL}>
+        <label label="Systemtray" halign={Gtk.Align.START} valign={Gtk.Align.START} />
     <box orientation={Gtk.Orientation.HORIZONTAL}>
-      <label label="Systemtray" />
       <Tray />
     </box>
+      </box>
   )
-
-  win.set_child(content as Gtk.Widget)
+    win.set_child(content as Gtk.Widget)
   app.add_window(win)
   return win
 

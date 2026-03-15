@@ -1,11 +1,11 @@
 window#Systray {
   background: transparent;
-  color: red;
+  color: white;
   font-weight: bold;
-  background: green;
-  border-radius: 10px;
-  margin: 8px;
-  min-width: 400px;
+  background: transparent;
+  min-width: 150px;
+  min-height: 50px;
+  margin-left: 8px;
   button {
     border-radius: 8px;
     margin: 2px;

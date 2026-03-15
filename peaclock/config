@@ -1,0 +1,46 @@
+# -----------------------------------------------------------------------------
+# general
+# -----------------------------------------------------------------------------
+mode clock
+view digital
+locale 'en_US.utf8'
+timezone ''
+date '%a %d %b'
+fill ''
+fill-active ''
+fill-inactive ''
+fill-colon ''
+
+padding-x 4
+padding-y 1
+margin-x 0
+margin-y 0
+ratio-x 1
+ratio-y 1
+date-padding 1
+stopwatch start
+timer 30m:0s
+timer-exec 'dunstify -a peaclock "timer complete"'
+rate-input 50
+rate-refresh 250
+rate-status 3000
+# set what hjkl do
+toggle padding
+set hour-24 on
+set seconds off
+set date on
+set auto-size on
+set auto-ratio on
+
+style active-fg red
+style active-bg green
+style inactive-fg clear
+style inactive-bg clear
+style colon-fg green
+style colon-bg green
+style date green
+style background #000000
+style text #ffffff
+style prompt #424957
+style success #89e051
+style error #f34b7d
