@@ -10,9 +10,9 @@ hyprctl dispatch dpms on "$PRIMARY"
 sleep 0.5
 
 case $((RANDOM % 3)) in
-    0) foot --app-id=screensaver -F sh -c 'while true; do cbonsai -S; sleep 1; done' ;;
-    1) foot --app-id=screensaver -F astroterm ;;
-    2) foot --app-id=screensaver -F cmatrix ;;
+    0) foot --app-id=screensaver -F -e sh -c 'while true; do cbonsai -S; sleep 1; done' ;;
+    1) foot --app-id=screensaver -F -e astroterm ;;
+    2) foot --app-id=screensaver -F -e cmatrix ;;
 esac &
 PID=$!
 trap "kill $PID 2>/dev/null" INT TERM
