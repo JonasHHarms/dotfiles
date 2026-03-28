@@ -1,0 +1,28 @@
+
+# Steam / VR
+export VK_DRIVER_FILES=/usr/share/vulkan/icd.d/nvidia_icd.json
+export XR_RUNTIME_JSON=/usr/share/openxr/1/openxr_monado.json
+export LD_LIBRARY_PATH=$HOME/.steam/steamapps/common/SteamVR:$HOME/.steam/steamapps/common/SteamVR/bin/linux64:$HOME/.steam/steamapps/common/SteamVR/bin/linux64/qt/lib:.local/share/Steam/steamapps/common/SteamVR/bin/linux64/qt/lib/libQt5Multimedia.so.5:$LD_LIBRARY_PATH
+export XRT_COMPOSITOR_FORCE_WAYLAND_DIRECT=1
+export XRT_COMPOSITOR_USE_PRESENT_WAIT=1
+export U_PACING_COMP_TIME_FRACTION_PERCENT=90
+export VR_OVERRIDE=/opt/xrizer
+export STEAMVR_LH_ENABLE=true
+export PRESSURE_VESSEL_FILESYSTEMS_RW=$XDG_RUNTIME_DIR/monado.pid
+export OXR_PARALLEL_VIEWS=1
+export XRT_COMPOSITOR_FORCE_NVIDIA_DISPLAY=NVIDIA
+export VIT_SYSTEM_LIBRARY_PATH=/usr/lib/libbasalt.so
+export WLR_NO_HARDWARE_CURSORS=1
+
+# Nvidia
+export LIBVA_DRIVER_NAME=nvidia
+export NVD_BACKEND=direct
+export __NV_PRIME_RENDER_OFFLOAD=1
+export __GLX_VENDOR_LIBRARY_NAME=nvidia
+export __VK_LAYER_NV_optimus=NVIDIA_only
+export __GL_GSYNC_ALLOWED=0
+export __GL_VRR_ALLOWED=0
+export GBM_BACKEND=nvidia-drm
+export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=PCI:13:0:0
+
+
