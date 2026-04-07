@@ -76,43 +76,51 @@ config = function()
 },
 {
   "lervag/vimtex",
-  lazy = false,     -- we don't want to lazy load VimTeX
+  lazy = false,     -- cant lazy load VimTeX
   init = function()
     vim.g.vimtex_view_method = "zathura"
   end
 },
 { "neovim/nvim-lspconfig",
-dependencies = {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim"
-},
-config = function()
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-    require('mason').setup()
-    local mason_lspconfig = require 'mason-lspconfig'
-    mason_lspconfig.setup {
-        ensure_installed = { "pyright" }
-    }
-    vim.lsp.enable('pyright')
-end,
-},
-    { "nvim-treesitter/nvim-treesitter", version = false,
+    dependencies = {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim"
+    },
     config = function()
-        require 'nvim-treesitter.install'.prefer_git = true
-        require 'nvim-treesitter.install'.compilers = { "cl", "clang", "gcc", "zig" }
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+        require('mason').setup()
+        local mason_lspconfig = require 'mason-lspconfig'
+        mason_lspconfig.setup {
+            ensure_installed = { "pyright" }
+        }
+        vim.lsp.enable('pyright')
+    end,
+},
+{ "nvim-treesitter/nvim-treesitter", 
+    version = false,
+    lazy = false,
+    build = ':TSUpdate',
+    config = function()
+        local syntaxhighlighter = require('nvim-treesitter')
+        syntaxhighlighter.install { "latex", "python", "javascript", "lua", "bash", "zsh", "css", "csv", "commonlisp",
+                                  "git_config", "gitcommit", "go", "html", "http", "hyprlang",
+                                  "jq", "json", "kitty", "markdown", "meson", "markdown_inline", "passwd",
+                                  "php", "powershell", "properties", "query", "r", "readline", "regex",
+                                  "requirements", "robots_txt", "rust", "scss", "sql", "ssh_config", "strace",
+                                  "tmux", "toml", "typescript", "udev", "vim", "vimdoc", "xml", "yaml", "yang", "yuck", "zathurarc" }
     end
 },
 {"nvim-telescope/telescope.nvim", cmd = "Telescope", version = false,
-dependencies = { "nvim-lua/plenary.nvim", 
-                 "BurntSushi/ripgrep", 
-                 "nvim-tree/nvim-web-devicons", 
-             },
-config = function()
-    require'telescope'.setup({ })
-end
-    },
+    dependencies = { "nvim-lua/plenary.nvim", 
+                     "BurntSushi/ripgrep", 
+                     "nvim-tree/nvim-web-devicons", 
+                 },
+    config = function()
+        require'telescope'.setup({ })
+    end
+},
 {'mfussenegger/nvim-dap',
     config = function()
         local dap = require('dap')
@@ -273,4 +281,13 @@ local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = t
   group = highlight_group,
   pattern = '*',
 })
-
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { "latex", "tex", "bib", "python", "javascript", "lua", "bash", "zsh", "css", "csv", "commonlisp",
+              "git_config", "gitcommit", "go", "html", "http", "hyprlang",
+              "jq", "json", "kitty", "markdown", "meson", "markdown_inline", "passwd",
+              "php", "powershell", "properties", "query", "r", "readline", "regex",
+              "requirements", "robots_txt", "rust", "scss", "sql", "ssh_config", "strace",
+              "tmux", "toml", "typescript", "udev", "vim", "vimdoc", "xml", "yaml", "yang", "yuck", "zathurarc" },
+  callback = function() vim.treesitter.start() end,
+})
+vim.treesitter.language.register('latex', { 'tex', 'bib' })
