@@ -1,7 +1,7 @@
 # General Settings in this file
 # Compositor settings in env-hyprland for hypr and aquamarin
 # Source Laptop od desktop specific vars depending on hostname
-case "$(hostname)" in
+case "$(uname -n)" in
   Laptop)
     [ -r "$HOME/.config/uwsm/env-laptop" ] && . "$HOME/.config/uwsm/env-laptop"
     ;;
