@@ -1,0 +1,153 @@
+hl.monitor({
+    output   = "",
+    mode     = "preferred",
+    position = "auto",
+    scale    = "auto",
+})
+
+-- Main Desk screen
+hl.monitor({
+    output = "desc:BNQ ZOWIE XL LCD EBW9N00747SL0",
+    mode = "1920x1080@360",
+    position = "640x-1080",
+    scale = 1,
+    bitdepth = 10,
+    cm = "hdr", --hdredid
+    vrr = 0, -- 0 - off, 1 - on, 2 - fullscreen only
+    supports_wide_color = 1,
+    supports_hdr = 1,
+    --sdrbrightness = 1.2,
+    --sdrsaturation = 0.98,
+    sdr_min_luminance = 0,       -- So black is not grey
+    min_luminance = 0,           -- So black is not grey
+    --sdr_max_luminance = 160,
+    --max_luminance = 400,
+})
+-- samsung Up desk screen
+hl.monitor({
+    output = "desc:Samsung Electric Company LC27RG50 H4ZN800083",
+    mode = "1920x1080@120",
+    position = "640x-2160",
+    scale = 1,
+    bitdepth = 10,
+    cm = "hdr", --hdredid
+    vrr = 0, -- 0 - off, 1 - on, 2 - fullscreen only
+    supports_wide_color = 1,
+    supports_hdr = 1,
+    --sdrbrightness = 1.2,
+    --sdrsaturation = 0.98,
+    --sdr_max_luminance = 160,
+    --max_luminance = 400,
+    sdr_min_luminance = 0,       -- So black is not grey
+    min_luminance = 0,           -- So black is not grey
+})
+-- ViewSonic right desk screen
+hl.monitor({
+    output = "desc:ViewSonic Corporation XG272-2K-OLED XJY241700095",
+    mode = "2560x1440@144.00Hz",
+    position = "2560x-1800",
+    scale = 1,
+    transform = 1,
+    --bitdepth = 10,
+    --cm = "hdr", --hdredid
+    --vrr = 1, -- 0 - off, 1 - on, 2 - fullscreen only
+    --supports_wide_color = 1,
+    --supports_hdr = 1,
+    --sdrbrightness = 1.2,
+    --sdrsaturation = 0.98,
+    --sdr_max_luminance = 160,
+    --max_luminance = 400,
+    --sdr_min_luminance = 0,       -- So black is not grey
+    --min_luminance = 0,           -- So black is not grey
+})
+-- Laptopscreen
+hl.monitor({
+    output = "desc:Thermotrex Corporation TL134ADXP01-0",
+    mode = "2560x1600@165.00Hz",
+    scale = 1,
+  --  bitdepth = 10,
+   -- cm = "hdr",
+  --  vrr = 0, -- 0 - off, 1 - on, 2 - fullscreen only
+  --  supports_wide_color = 1,
+  --  supports_hdr = 1,
+  --  sdrbrightness = 1.2,
+  --  sdrsaturation = 0.98,
+  --  sdr_max_luminance = 250,
+  --  max_luminance = 400,
+    sdr_min_luminance = 0,       -- So black is not grey
+    min_luminance = 0,           -- So black is not grey
+})
+
+-- Asus OLED
+hl.monitor({
+    output = "desc:ASUSTek COMPUTER INC PG32UCDP SALMQS120128",
+    mode = "3840x2160@240",
+    position = "auto-up",
+    scale = 1,
+    --bitdepth = 12,
+    cm = "hdr", --hdredid
+    vrr = 2, -- 0 - off, 1 - on, 2 - fullscreen only
+    supports_wide_color = 1,
+    supports_hdr = 1,
+    --sdrbrightness = 1.2,
+    --sdrsaturation = 0.98,
+    --sdr_max_luminance = 160,
+    --max_luminance = 400,
+    sdr_min_luminance = 0,       -- So black is not grey
+    min_luminance = 0,           -- So black is not grey
+})
+
+-- GIGA-BYTE links schreibtisch
+hl.monitor({
+    output = "desc:GIGA-BYTE TECHNOLOGY CO. LTD. GS27Q 23282B002014",
+    mode = "2560x1440@120.00Hz",
+    transform = 3,
+    position = "-800x-1800",
+    scale = 1,
+    --bitdepth = 12,
+    cm = "hdr", --hdredid
+    vrr = 2, -- 0 - off, 1 - on, 2 - fullscreen only
+    supports_wide_color = 1,
+    supports_hdr = 1,
+    --sdrbrightness = 1.2,
+    --sdrsaturation = 0.98,
+    --sdr_max_luminance = 160,
+    --max_luminance = 400,
+    sdr_min_luminance = 0,       -- So black is not grey
+    min_luminance = 0,           -- So black is not grey
+})
+
+hl.monitor({
+    output = "desc:BNQ BenQ GL2450H A9C12933019",
+    mode = "1920x1080@59.94Hz",
+    transform = 0,
+    position = "0x-1080",
+    scale = 1,
+    bitdepth = 8,
+    cm = "srgb",
+    vrr = 0,
+    supports_wide_color = 0,
+    supports_hdr = 0,
+    sdrbrightness = 1,
+    sdrsaturation = 1,
+    sdr_max_luminance = 80,
+    sdr_min_luminance = 0.2,
+})
+
+hl.monitor({
+    output = "desc:Acer Technologies K242HL T0FEE0148527",
+    mode = "1920x1080@59.94Hz",
+    transform = 0,
+    position = "2560x0",
+    scale = 1,
+    bitdepth = 8,
+    cm = "srgb",
+    vrr = 0,
+    supports_wide_color = 0,
+    supports_hdr = 0,
+    sdrbrightness = 1,
+    sdrsaturation = 1,
+    sdr_max_luminance = 80,
+    sdr_min_luminance = 0.2,
+})
+
