@@ -1,0 +1,85 @@
+---------------
+---- INPUT ----
+---------------
+
+hl.config({
+    input = {
+        kb_layout  = "de",
+        kb_variant = "",
+        kb_model   = "",
+        kb_rules   = "",
+        follow_mouse = 1,
+       -- kb_options = {"caps:escape", "fkeys:basic_13-24"},
+        numlock_by_default = true,
+        sensitivity = 0, -- 0 rawinput
+        scroll_method = "2fg", --twofingers
+        float_switch_override_focus = 2,
+        special_fallthrough = 1, -- focus windows below special ws
+        force_no_accel = 1, -- might cause cursor desync
+        focus_on_close = 1,
+        tablet = {
+            --also drawing tablet
+            output = "current",
+            transform = -1
+           --TODO -- active_area_size =
+        },
+        touchpad = {
+            natural_scroll = true,
+            disable_while_typing = true,
+            scroll_factor = 0.3,
+            drag_lock = true,
+            middle_button_emulation = 1,
+            tap_to_click = true,
+        },
+--        gestures = {
+  --          workspace_swipe_touch = false,
+    --        workspace_swipe_forever = false,
+      --      workspace_swipe_use_r = false,
+        --    workspace_swipe_direction_lock = false,
+      --  },
+    }})
+
+hl.gesture({
+    fingers = 3,
+    direction = "horizontal",
+    action = "workspace"
+})
+
+hl.device({
+    name        = "epic-mouse-v1",
+    sensitivity = -0.5,
+})
+
+hl.config({
+cursor = {
+    default_monitor = "BNQ ZOWIE XL LCD EBW9N00747SL0",
+    enable_hyprcursor = 1,
+    use_cpu_buffer = 1,
+    hotspot_padding = 1,
+    inactive_timeout = 0, -- hide cursor after n seconds, 0 disables
+    hide_on_key_press = 1,
+    hide_on_touch = 1,
+    no_warps = 1,
+    persistent_warps = 0,
+    warp_on_toggle_special = 1,
+    warp_on_change_workspace = 1,
+    warp_back_after_non_mouse_input = 1,
+    no_hardware_cursors = 1,
+    no_break_fs_vrr = 1,
+    min_refresh_rate = 24, -- min supported refrehs rate of monitor
+},})
+
+
+-- Devices 
+
+hl.device({
+    name = "k830-mouse",
+    sensitivity = 0,
+    natural_scroll = true,
+})
+
+hl.device({
+    name = "k830-keyboard",
+    sensitivity = 0,
+    natural_scroll = true,
+})

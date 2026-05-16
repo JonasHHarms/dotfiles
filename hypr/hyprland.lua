@@ -1,0 +1,148 @@
+-- Configs
+require("windowrules") -- windowrules
+require("monitors")    -- Displays
+require("permissions") -- permissions
+require("keybinds")    -- bindings
+require("input")       -- devices and cursor
+require("autostart")   -- Autostart
+require("animations")  -- Animations
+
+
+hl.config({
+    general = {
+        gaps_in = 4,
+        gaps_out = 0,
+        border_size = 3,
+        resize_on_border = 0,
+        allow_tearing = 1,                      -- could improve latency in games + need to add a window rule per app to activate it
+        layout = "dwindle",
+        no_focus_fallback = 1,
+ --       no_border_on_floating = 0,
+        resize_corner = 3,
+        float_gaps = 0,
+        gaps_workspaces = 1,
+        snap = {
+            enabled = 1,
+            window_gap = 10,
+            monitor_gap = 10,
+            border_overlap = 1,
+            respect_gaps = 1,
+        },
+        col = {
+            active_border   = { colors = {"rgba(33ccffee)", "rgba(00ff99ee)"}, angle = 45 },
+            inactive_border = "rgba(595959aa)",
+        },
+    },
+    decoration = {
+        rounding = 10,
+        rounding_power = 4,         -- larger is smoother, 2.0 is a circle, 4.0 is a squircle, 1.0 is a triangular corner. [1.0 - 10.0]
+        dim_inactive = false,
+        active_opacity = 1,
+        inactive_opacity = 1,
+        fullscreen_opacity = 1,
+        dim_modal = 0,               -- enables dimming modal windows 
+        dim_strength = 0.2,
+        dim_special = 0.2,
+        dim_around = 0.2,
+        -- screen_shader = 
+        border_part_of_window = 0,   -- consider the border a part of the window
+        shadow = {
+            enabled = 1,
+            range = 4,
+            render_power = 3,
+            sharp = 0,
+            color = "0xee1a1a1a",
+            color_inactive = "0xee1a1a1a",
+            offset = {0, 0},
+            scale = 1,
+        },
+        blur = {
+            enabled = 0,
+            --size = 0,
+            --passes = 0,
+            --ignore_opacity = 1,
+            --new_optimizations = 1,
+            --xray = 0,                   -- dont blur overlaping windows
+            --noise = 0.3,
+            --contrast = 1,
+            --brightness = 1,
+            --vibrancy = 0,
+            --vibrancy_darkness = 0,
+            --special = 0,
+            --popups = 0,                         -- whether to blur popups (e.g. right-click menus)
+            --popups_ignorealpha = 0, --0.2,
+            --input_methods = 0 ,
+            --input_methods_ignorealpha = 0,
+        },
+    },
+    render = {
+        cm_enabled = 1,
+        direct_scanout = 1,                  -- Reduce lag when there is only one fullscreen application on a screen (e.g. game). set to 0 if fullscreen app shows graphical glitches. 0 - off, 1 - on, 2 - only in game
+        expand_undersized_textures = 1,      -- expand undersized textures along edge, or stretch entire texture.
+        xp_mode = 0,                         -- Disables back buffer and bottom layer rendering.
+        ctm_animation = 0,                   -- fade temp changes, disable for nvidia
+        cm_sdr_eotf = 2,                     -- default transfer function for displaying SDR apps. 0 - Treat unspecified as sRGB, 1 - Treat unspecified as Gamma 2.2, 2 - Treat unspecified and sRGB as Gamma 2.2
+        send_content_type = 1,               -- monitor profile autoswithc 
+        cm_auto_hdr = 0,                     -- 2 uses hdreid
+        new_render_scheduling = 0,           -- tripple buffering disabled is better
+    },
+    opengl = {
+        nvidia_anti_flicker = 1,             -- 1 should reduce flickering , enable if flickering sdhow up
+    },
+    misc = {
+        force_default_wallpaper = 0,
+        disable_hyprland_logo = 1,
+        disable_splash_rendering = 1,
+        disable_scale_notification = 0,
+        mouse_move_enables_dpms = 1,
+        key_press_enables_dpms = 1,
+        layers_hog_keyboard_focus = 1,           -- overlys retain focus on mouse move
+        background_color = "0x000000",
+        font_family = "ttf-go-nerd",
+        animate_manual_resizes = 0,
+        animate_mouse_windowdragging = 0,
+        enable_swallow = 0,                      -- Programms swallow terminal on start
+        --swallow_regex = "kitty",
+        --swallow_regex = "com.mitchellh.ghostty",
+        enable_anr_dialog = 0,                   -- enable the ANR (app not responding) dialog when apps hang
+        anr_missed_pings = 0,                    -- anr_missed_pings
+        focus_on_activate = 1,                   -- allows apps to request focus
+        allow_session_lock_restore = 1,          -- restore session on lockscreenapp crash
+        session_lock_xray = 0,                   -- render session under lockscreen
+        close_special_on_empty = 1,
+        --new_window_takes_over_fullscreen = 2,   -- 0 - behind, 1 - takes over, 2 - unfullscreen/unmaxize
+        exit_window_retains_fullscreen = 0,      -- stay in fs mode even if fs app exits
+        initial_workspace_tracking = 2,          -- windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too)
+        middle_click_paste = 0,
+        vrr = 2,
+    },
+    xwayland = {
+        enabled = 1,
+        use_nearest_neighbor = 0,    -- 1 pixelated 0 blurry xwayland apps
+        create_abstract_socket = 1,  -- might make sandboxing xwaylandapps harder
+        force_zero_scaling = 1,
+    },
+    ecosystem = {
+        no_update_news = 0, -- News are needed bc features change alot
+        no_donation_nag = 1,
+    },
+    animations = {
+        enabled = true,
+        workspace_wraparound = true,
+    },
+    dwindle = {
+        preserve_split = true,
+        force_split = 2,
+        smart_split = true,
+        default_split_ratio = 1
+    },
+    master = {
+        new_status = slave,
+        new_on_top = true,
+        mfact = 0.5,
+        new_on_active = after,
+    },
+    scrolling = {
+        fullscreen_on_one_column = true,
+    },
+})

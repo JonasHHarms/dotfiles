@@ -5,7 +5,7 @@
        -- powerprofilesctl set performance  -- sets performance mode
 
  hl.on("hyprland.start", function () 
-    hl.exec_cmd("uwsm finalize FINALIZED="Done UWSM finalizing"  -- Needed for uwsm
+    hl.exec_cmd("uwsm finalize FINALIZED='Done UWSM finalizing'")  -- Needed for uwsm
     hl.exec_cmd("tmux setenv -g HYPRLAND_INSTANCE_SIGNATURE $HYPRLAND_INSTANCE_SIGNATURE") -- needed for tmux
     hl.exec_cmd("tmux new-session -d -s mainctl")                  -- Session for my main tty
     hl.exec_cmd("tmux new-session -d -s clipboard")                -- Session for clipboard and paste shortcuts
