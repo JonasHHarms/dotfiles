@@ -15,14 +15,14 @@ hl.config({
     drag_threshold = 10, -- drage mouse at least this far for mousedrag binds
 },})
 
-local mainMod = "SUPER" -- Sets "Windows" key as main modifier
+local mainMod = "SUPER"
 
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("ghostty -e tmux attach-session -t mainctl"))
 hl.bind(mainMod .. " + CONTROL_L + ESCAPE", hl.dsp.exec_cmd("loginctl terminate-user $USER"))
 hl.bind(mainMod .. " + F", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + Y", hl.dsp.layout("togglesplit"))    -- dwindle only
-hl.bind("ALT_L + F4", hl.dsp.layout("hyprctl dispatch killactive"))
+hl.bind("ALT + F4", hl.dsp.window.kill())
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd("foot"))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
 

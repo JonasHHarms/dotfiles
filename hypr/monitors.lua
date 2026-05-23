@@ -12,7 +12,7 @@ hl.monitor({
     position = "640x-1080",
     scale = 1,
     bitdepth = 10,
-    cm = "hdr", --hdredid
+    cm = "srgb", --hdredid
     vrr = 0, -- 0 - off, 1 - on, 2 - fullscreen only
     supports_wide_color = 1,
     supports_hdr = 1,

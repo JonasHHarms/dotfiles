@@ -13,7 +13,6 @@ TMOUT=30
 TRAPALRM() {
   zle reset-prompt
 }
-export PS1=" %F{blue}%D{%H:%M}  󰣇  %f%~/ $ "
 
 ### Options ###
 CASE_SENSITIVE="true"
@@ -63,7 +62,8 @@ bindkey -e
 ### Initiation of other tools
 eval "$(zoxide init zsh)"
 eval "$(mcfly init zsh)"
-eval $(thefuck --alias ups)
+eval "$(pyenv init -)"
+eval "$(thefuck --alias ups)"
 source <(fzf --zsh)
 
 ### Functions ###
@@ -75,11 +75,3 @@ y() {
     fi
     rm -f -- "$tmp"
 }
-
-
-### PNPM ###
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
