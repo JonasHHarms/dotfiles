@@ -79,11 +79,11 @@ hl.config({
         cm_enabled = 1,
         direct_scanout = 1,                  -- Reduce lag when there is only one fullscreen application on a screen (e.g. game). set to 0 if fullscreen app shows graphical glitches. 0 - off, 1 - on, 2 - only in game
         expand_undersized_textures = 1,      -- expand undersized textures along edge, or stretch entire texture.
-        xp_mode = 0,                         -- Disables back buffer and bottom layer rendering.
+        xp_mode = 1,                         -- Disables back buffer and bottom layer rendering.r1
         ctm_animation = 0,                   -- fade temp changes, disable for nvidia
-        cm_sdr_eotf = 2,                     -- default transfer function for displaying SDR apps. 0 - Treat unspecified as sRGB, 1 - Treat unspecified as Gamma 2.2, 2 - Treat unspecified and sRGB as Gamma 2.2
-        send_content_type = 1,               -- monitor profile autoswithc 
-        cm_auto_hdr = 0,                     -- 2 uses hdreid
+        cm_sdr_eotf = 0,                     -- default transfer function for displaying SDR apps. 0 - Treat unspecified as sRGB, 1 - Treat unspecified as Gamma 2.2, 2 - Treat unspecified and sRGB as Gamma 2.2
+        send_content_type = 0,               -- monitor profile autoswithc 
+        cm_auto_hdr = 1,                     -- 2 uses hdreid
         new_render_scheduling = 0,           -- tripple buffering disabled is better
     },
     opengl = {
@@ -114,7 +114,6 @@ hl.config({
         exit_window_retains_fullscreen = 0,      -- stay in fs mode even if fs app exits
         initial_workspace_tracking = 2,          -- windows will open on the workspace they were invoked on. 0 - disabled, 1 - single-shot, 2 - persistent (all children too)
         middle_click_paste = 0,
-        vrr = 2,
     },
     xwayland = {
         enabled = 1,

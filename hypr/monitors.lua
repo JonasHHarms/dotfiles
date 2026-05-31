@@ -83,17 +83,13 @@ hl.monitor({
     output = "desc:ASUSTek COMPUTER INC PG32UCDP SALMQS120128",
     mode = "3840x2160@240",
     position = "auto-up",
-    scale = 1,
-    --bitdepth = 12,
+    --scale = 1,
+    bitdepth = 10,
     cm = "hdr", --hdredid
-    vrr = 2, -- 0 - off, 1 - on, 2 - fullscreen only
+    vrr = 0, -- 0 - off, 1 - on, 2 - fullscreen only
     supports_wide_color = 1,
     supports_hdr = 1,
-    --sdrbrightness = 1.2,
-    --sdrsaturation = 0.98,
-    --sdr_max_luminance = 160,
-    --max_luminance = 400,
-    sdr_min_luminance = 0,       -- So black is not grey
+    max_luminance = 400,
     min_luminance = 0,           -- So black is not grey
 })
 
