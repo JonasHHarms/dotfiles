@@ -5,15 +5,15 @@ alias ali="bat ~/.config/zsh/aliases"
 alias cat="bat"
 alias grep="rg"
 alias cd='z'
-alias fuck='ups'
 alias vi="nvim -n"
 alias ls='eza --color=always --icons=always --all --git --mounts --sort=filename --no-quotes --tree --classify=always --grid --color-scale=all --color-scale-mode=gradient --hyperlink --group-directories-first --long --header --binary --changed --no-permissions --no-user'
 alias whoami="whoami && ~/.config/eww/scripts/getloc.sh"
 alias dust="dust --force-colors --depth 1 --skip-total --number-of-lines=500 --reverse --invert-filter='git'"
-alias history="mcfly --history_format=zsh search"
-alias pastel="pastel --color-picker hyprpicker"
-alias ddgr="ddgr --num=25 --reg=us-en --unsafe --noua --reverse --colors=oCdgxy"
-alias newsboat="newsboat --config-file=$HOME/.config/newsboat/config --url-file=$HOME/.config/newsboat/urls"
+alias hist="mcfly --history_format=zsh search"
+alias colors="pastel --color-picker hyprpicker"
+alias ddg="ddgr --num=25 --reg=us-en --unsafe --noua --reverse --colors=oCdgxy"
+alias news="newsboat --config-file=$HOME/.config/newsboat/config --url-file=$HOME/.config/newsboat/urls"
+alias notes="obsidian & disown"
 
 # Shortcuts
 alias rstudio="/usr/lib/rstudio/rstudio & disown"
