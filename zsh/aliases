@@ -1,3 +1,4 @@
+
 # print all chars
 alias ali="bat ~/.config/zsh/aliases"
 
@@ -14,6 +15,9 @@ alias colors="pastel --color-picker hyprpicker"
 alias ddg="ddgr --num=25 --reg=us-en --unsafe --noua --reverse --colors=oCdgxy"
 alias news="newsboat --config-file=$HOME/.config/newsboat/config --url-file=$HOME/.config/newsboat/urls"
 alias notes="obsidian & disown"
+alias sql="duckdb"
+alias pactl="wpctl"
+
 
 # Shortcuts
 alias rstudio="/usr/lib/rstudio/rstudio & disown"
