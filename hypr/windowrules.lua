@@ -1,4 +1,3 @@
----- WINDOWS AND WORKSPACES ----
 
 -- Hyprland-run windowrule, copied from example
 hl.window_rule({
@@ -15,7 +14,7 @@ hl.window_rule({
     suppress_event = "maximize",
 })
 
--- Fix some dragging issues with XWayland
+-- Fix XWayland dragging 
 hl.window_rule({
     name  = "fix-xwayland-drags",
     match = {
@@ -29,6 +28,7 @@ hl.window_rule({
     no_focus = true,
 })
 
+
 -- Layer rules also return a handle.
 -- local overlayLayerRule = hl.layer_rule({
 --     name  = "no-anim-overlay",
@@ -37,6 +37,7 @@ hl.window_rule({
 -- })
 -- overlayLayerRule:set_enabled(false)
 
+-- Group settings
 hl.config({
 group =  {
     auto_group = 0,
@@ -90,26 +91,12 @@ group =  {
         },
     },
 })
-
-hl.window_rule({
-    name  = "fix-xwayland-drags",
-    match = {
-        class      = "^$",
-        title      = "^$",
-        xwayland   = true,
-        float      = true,
-        fullscreen = false,
-        pin        = false,
-    },
-    no_focus = true,
-})
-
 hl.window_rule({
     name = "utilsgroup",
     match = {
         tag = "utils",
     },
-    float = 1,
+    float = 0,
     no_initial_focus = 1,
     focus_on_activate = 0,
     size = {500, 250},
@@ -160,6 +147,43 @@ hl.window_rule({
     focus_on_activate = 1,
 })
 
+hl.window_rule({
+    name = "Polkit elevated",
+    match = { class = "hyprpolkitagent" },
+    border_color = "#FF0000",
+    dim_around = true,
+    stay_focused = true
+})
+--Make Browser child windows auto float
+hl.on("window.open", function(w)
+    if w.class ~= "firefox" then return end
+    if w.initial_class ~= "firefox" then return end
+    --if w.initial_title ~= "Mozilla Firefox" then return end
+
+    local ff_windows = hl.get_windows({ class = "firefox" })
+    if #ff_windows <= 1 then return end
+
+    hl.dispatch(hl.dsp.window.float({ action = "set", window = w }))
+
+    local sub
+    sub = hl.on("window.title", function(tw)
+        if tw.address ~= w.address then return end
+        if tw.title == ""
+            or tw.title == "Mozilla Firefox"
+            or tw.title == "about:blank"
+            or tw.title:match("^about:.*Mozilla Firefox$") then return end
+
+        sub:remove()
+
+        if tw.title:match("^Extension:") or tw.title == "Library" then
+            hl.dispatch(hl.dsp.window.resize({ x = 872, y = -446, window = tw }))
+            hl.dispatch(hl.dsp.window.center({ window = tw }))
+            hl.dispatch(hl.dsp.focus({ window = tw }))
+        else
+            hl.dispatch(hl.dsp.window.float({ action = "unset", window = tw }))
+        end
+    end)
+end)
     ------ Match --------
     --match = {class =                     -- Windows with class matching =.
     --match = {title =                     -- Windows with title matching =.

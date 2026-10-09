@@ -1,10 +1,10 @@
 #! /bin/zsh
-muted=$(pactl get-sink-mute @DEFAULT_SINK@)
-curr_vol=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '/Volume:/ {print $5}' | tr -d '%')
+muted=$(wpctl get-volume @DEFAULT_SINK@ | grep -q '\[MUTED\]' && echo muted || echo unmuted)
+curr_vol=$(wpctl get-volume @DEFAULT_SINK@ | awk '/Volume:/ {print $2}')
 
 if [[ -z "$curr_vol" ]]; then
     exit 0
-elif [[ "$muted" == "Mute: yes" ]]; then
+elif [[ "$muted" == "muted" ]]; then
     echo "󰝟 "
     exit 0
 else

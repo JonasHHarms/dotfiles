@@ -93,14 +93,14 @@ hl.monitor({
     min_luminance = 0,           -- So black is not grey
 })
 
--- GIGA-BYTE links schreibtisch
+-- GIGA-BYTE links schreibtisch HDMI A 1
 hl.monitor({
     output = "desc:GIGA-BYTE TECHNOLOGY CO. LTD. GS27Q 23282B002014",
     mode = "2560x1440@120.00Hz",
     transform = 3,
     position = "-800x-1800",
     scale = 1,
-    --bitdepth = 12,
+    bitdepth = 10,
     cm = "hdr", --hdredid
     vrr = 2, -- 0 - off, 1 - on, 2 - fullscreen only
     supports_wide_color = 1,

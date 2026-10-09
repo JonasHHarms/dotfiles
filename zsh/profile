@@ -8,13 +8,16 @@ plugins=(git \
 
 
 ### Prompt ###
-setopt PROMPT_SUBST
-TMOUT=30
-TRAPALRM() {
-  zle reset-prompt
-}
+#TMOUT=30 # This makes the shell exit after x settings if TRAPLRM is undefined, if defined, it executes it instead in this interval
+#TRAPALRM() {
+  #case $WIDGET in
+    #expand-or-complete|menu-complete|complete-word|*-list-choices) ;;
+    #*) zle reset-prompt ;;
+  #esac
+#}
 
 ### Options ###
+setopt PROMPT_SUBST # so $date in the prompt dosnt just print text, needed for ohmyzsh stuff
 CASE_SENSITIVE="true"
 ENABLE_CORRECTION="false"
 COMPLETION_WAITING_DOTS="true"
@@ -46,7 +49,7 @@ setopt rm_star_wait
 setopt sun_keyboard_hack
 setopt interactive_comments
 setopt auto_menu 
-setopt menu_complete
+unsetopt menu_complete # handled by auto_menu, menu_complete insers immediately instead of printing options
 setopt long_list_jobs
 setopt pipe_fail
 setopt globdots
@@ -66,12 +69,3 @@ eval "$(pyenv init -)"
 eval "$(thefuck --alias ups)"
 source <(fzf --zsh)
 
-### Functions ###
-y() {
-    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-    yazi "$@" --cwd-file="$tmp"
-    if cwd="$(<"$tmp")" && [[ -n "$cwd" && "$cwd" != "$PWD" ]]; then
-        builtin cd -- "$cwd"
-    fi
-    rm -f -- "$tmp"
-}

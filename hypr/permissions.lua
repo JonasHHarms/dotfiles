@@ -50,5 +50,7 @@ hl.config({
  hl.permission("usb-2.0-usb-audio-device-keyboard", "keyboard", "allow")
  hl.permission("eee-pc-wmi-hotkeys", "keyboard", "allow")
  hl.permission("logitech-g915-keyboard", "keyboard", "allow")
+ hl.permission("questyle-qcc-dongle-pro2", "keyboard", "allow")
+ hl.permission("questyle-qcc-dongle-pro2-consumer-control", "keyboard", "allow")
  hl.permission(".*", "keyboard", "ask")
 

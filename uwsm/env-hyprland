@@ -1,11 +1,12 @@
 # Hyprland 
 export HYPRCURSOR_THEME=Nordzy-hyprcursors
 export HYPRCURSOR_SIZE=48
-export HYPRLAND_TRACE=1
-export HYPRLAND_NO_SD_NOTIFY=1
-export HYPRLAND_NO_SD_VARS=1
+export HYPRLAND_TRACE=1 # more verbose logging
+export HYPRLAND_NO_SD_NOTIFY=1 # no sd_notify calls
+export HYPRLAND_NO_SD_VARS=1 # enabled so hyprland doesnt break systemd variables
+export HYPRLAND_NO_RT=0 # 1 disables realtime sheduling 
 
 # Aquamarine
-export AQ_TRACE=1
+export AQ_TRACE=1 #more verbose logs
 export AQ_MGPU_NO_EXPLICIT=1
 export AQ_NO_MODIFIERS=0 # Breaks Startup when 1

@@ -1,0 +1,97 @@
+### Functions ###
+ali() {
+    bat ~/.config/zsh/aliases
+    bat ~/.config/zsh/funcs
+}
+
+paint() {
+    systemctl --user start opentabletdriver.service || return
+    otd-gui &
+    krita --fullscreen &
+}
+y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(<"$tmp")" && [[ -n "$cwd" && "$cwd" != "$PWD" ]]; then
+        builtin cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
+# human-readable needs to be given twice for 1024/1000 differentiation
+cp() {
+    command rsync \
+        --verbose \
+        --progress \
+        --partial \
+        --human-readable \
+        --human-readable \
+        --executability \
+        --exclude=git \
+        --stats \
+        --links \
+        --hard-links \
+        --no-perms \
+        --times \
+        --no-whole-file \
+        "$@"
+}
+
+unalias ls 2>/dev/null # bc ohmyzsh aliases ls
+ls() {
+    command eza \
+    --color=always \
+    --icons=always \
+    --all \
+    --git \
+    --mounts \
+    --sort=filename \
+    --no-quotes \
+    --tree \
+    --classify=always \
+    --grid \
+    --color-scale=all \
+    --color-scale-mode=gradient \
+    --hyperlink \
+    --group-directories-first \
+    --long \
+    --header \
+    --binary \
+    --changed \
+    --no-permissions \
+    --no-user \
+    "$@"
+}
+dust() {
+    command dust \
+    --force-colors \
+    --depth 1 \
+    --skip-total \
+    --number-of-lines=500 \
+    --reverse \
+    --invert-filter='git' \
+    "$@"
+}
+whoami() {
+    command whoami
+    ~/.config/eww/scripts/getloc.sh
+}
+news() {
+    command newsboat \
+    --config-file="$HOME/.config/newsboat/config" \
+    --url-file="$HOME/.config/newsboat/urls" \
+    "$@"
+}
+weather() {
+    curl -s 'http://wttr.in/FRA'
+}
+search() {
+    command ddgr \
+    --num=25 \
+    --reg=us-en \
+    --unsafe \
+    --noua \
+    --reverse \
+    --colors=oCdgxy \
+    "$@"
+}
+

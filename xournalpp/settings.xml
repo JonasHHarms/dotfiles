@@ -6,8 +6,8 @@
   <property name="pressureMultiplier" value="2.05"/>
   <property name="zoomGesturesEnabled" value="true"/>
   <property name="selectedToolbar" value="Right hand Note Taking Copy"/>
-  <property name="lastSavePath" value="/home/TatenK/Documents/Main/Knowledge base/Education/Master in Finance/Masterarbeit/scripts"/>
-  <property name="lastOpenPath" value="/home/TatenK/Downloads"/>
+  <property name="lastSavePath" value="/home/TatenK/Documents/Main/Knowledge base/Education/Master in Finance/Masterarbeit"/>
+  <property name="lastOpenPath" value="/home/TatenK/Documents/Main/Knowledge base/Education/Master in Finance/Masterarbeit"/>
   <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="25"/>
   <property name="edgePanMaxMult" value="5"/>

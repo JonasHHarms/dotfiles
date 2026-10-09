@@ -32,7 +32,7 @@
    automount:        true      # [bool] Enable automatic mounting.
    notify:           true      # [bool] Enable notifications.
    password_cache:   30        # [int] Password cache in minutes. Caching is disabled by default. It can be disabled explicitly by setting it to false
-   file_manager:     yazi      # [string] Set program to open directories. It will be invoked with the folder path as its last command line argument.
+   file_manager:     xdg-open      # [string] Set program to open directories. It will be invoked with the folder path as its last command line argument.
    terminal:         'ghostty' # [string] Set terminal command line to open directories. It will be invoked with the folder path as its last command line argument.
    #password_prompt: ["gnome-keyring-query", "get", "{id_uuid}"] # [string|list] Set command to retrieve passwords. If specified as a list it defines the ARGV array for the program call. If specified as a string, it will be expanded in a shell-like manner. Each string will be formatted using ‘str.format‘. For a list of device attributes, see below. The two special string values "builtin:gui" and "builtin:tty" signify to use udiskie's builtin password prompt.
    #event_hook: "dunstify" # [string|list] Set command to be executed on any device event. This is specified like ‘password_prompt‘.
@@ -67,6 +67,9 @@
    delete:   [udiskie-eject]
    quit:     [application-exit]
 
+ device_config:
+ - drive_vendor: Scarlett
+   ignore: true
  #device_config:
    # Any rule can contain multiple filters (AND) and multiple actions.
    #- device_file: /dev/dm-5    # [filter]
@@ -115,12 +118,12 @@
  # ui_label
  # loop_file               file backing the loop device
  # setup_by_uid            user that setup the loop device
- # # autoclear               automatically delete loop device after use
+ # autoclear               automatically delete loop device after use
  # symlinks
  # drive_model
  # drive_vendor
  # drive_label
- # # ui_device_label
+ # ui_device_label
  # ui_device_presentation
  # ui_id_label
  # ui_id_uuid

@@ -20,8 +20,10 @@ hl.config({
         tablet = {
             --also drawing tablet
             output = "current",
-            transform = -1
-           --TODO -- active_area_size =
+            transform = -1,
+            relative_input = 1,
+            left_handed = 0,
+            active_area_size = {225,150},
         },
         touchpad = {
             natural_scroll = true,

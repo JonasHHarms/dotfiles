@@ -1,0 +1,214 @@
+{
+  "Revision": "0.6.7",
+  "Profiles": [
+    {
+      "Tablet": "Wacom PTH-660",
+      "OutputMode": {
+        "Path": "OpenTabletDriver.Desktop.Output.AbsoluteMode",
+        "Settings": [],
+        "Enable": true
+      },
+      "Filters": [],
+      "AbsoluteModeSettings": {
+        "Display": {
+          "Width": 4800.0,
+          "Height": 2920.0,
+          "X": 2400.0,
+          "Y": 1460.0,
+          "Rotation": 0.0
+        },
+        "Tablet": {
+          "Width": 224.0,
+          "Height": 148.0,
+          "X": 112.0,
+          "Y": 74.0,
+          "Rotation": 0.0
+        },
+        "EnableClipping": true,
+        "EnableAreaLimiting": false,
+        "LockAspectRatio": false
+      },
+      "RelativeModeSettings": {
+        "XSensitivity": 10.0,
+        "YSensitivity": 10.0,
+        "RelativeRotation": 0.0,
+        "RelativeResetDelay": "00:00:00.1000000"
+      },
+      "Bindings": {
+        "TipActivationThreshold": 1.0,
+        "TipButton": {
+          "Path": "OpenTabletDriver.Desktop.Binding.AdaptiveBinding",
+          "Settings": [
+            {
+              "Property": "Binding",
+              "Value": "Tip"
+            }
+          ],
+          "Enable": true
+        },
+        "EraserActivationThreshold": 1.0,
+        "EraserButton": {
+          "Path": "OpenTabletDriver.Desktop.Binding.AdaptiveBinding",
+          "Settings": [
+            {
+              "Property": "Binding",
+              "Value": "Eraser"
+            }
+          ],
+          "Enable": true
+        },
+        "PenButtons": [
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.AdaptiveBinding",
+            "Settings": [
+              {
+                "Property": "Binding",
+                "Value": "Button 1"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.AdaptiveBinding",
+            "Settings": [
+              {
+                "Property": "Binding",
+                "Value": "Button 2"
+              }
+            ],
+            "Enable": true
+          }
+        ],
+        "AuxButtons": [
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.KeyBinding",
+            "Settings": [
+              {
+                "Property": "Key",
+                "Value": "A"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.LinuxArtistMode.LinuxArtistModePadBinding",
+            "Settings": [
+              {
+                "Property": "Button",
+                "Value": "Pad Button 2"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.LinuxArtistMode.LinuxArtistModePadBinding",
+            "Settings": [
+              {
+                "Property": "Button",
+                "Value": "Pad Button 3"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.LinuxArtistMode.LinuxArtistModePadBinding",
+            "Settings": [
+              {
+                "Property": "Button",
+                "Value": "Pad Button 4"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.LinuxArtistMode.LinuxArtistModePadBinding",
+            "Settings": [
+              {
+                "Property": "Button",
+                "Value": "Pad Button 5"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.LinuxArtistMode.LinuxArtistModePadBinding",
+            "Settings": [
+              {
+                "Property": "Button",
+                "Value": "Pad Button 6"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.LinuxArtistMode.LinuxArtistModePadBinding",
+            "Settings": [
+              {
+                "Property": "Button",
+                "Value": "Pad Button 7"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.LinuxArtistMode.LinuxArtistModePadBinding",
+            "Settings": [
+              {
+                "Property": "Button",
+                "Value": "Pad Button 8"
+              }
+            ],
+            "Enable": true
+          }
+        ],
+        "MouseButtons": [],
+        "MouseScrollUp": null,
+        "MouseScrollDown": null,
+        "WheelBindings": [
+          {
+            "WheelButtons": [
+              {
+                "Path": "OpenTabletDriver.Desktop.Binding.KeyBinding",
+                "Settings": [
+                  {
+                    "Property": "Key",
+                    "Value": "A"
+                  }
+                ],
+                "Enable": true
+              }
+            ],
+            "ClockwiseRotation": {
+              "Path": "OpenTabletDriver.Desktop.Binding.MouseScrollBinding",
+              "Settings": [
+                {
+                  "Property": "Direction",
+                  "Value": "Vertical"
+                },
+                {
+                  "Property": "Amount",
+                  "Value": 120
+                },
+                {
+                  "Property": "Interval",
+                  "Value": 300
+                }
+              ],
+              "Enable": true
+            },
+            "ClockwiseActivationThreshold": 5.0,
+            "CounterClockwiseRotation": null,
+            "CounterClockwiseActivationThreshold": 5.0,
+            "StepSize": 5.0
+          }
+        ],
+        "DisablePressure": false,
+        "DisableTilt": false,
+        "EnableDragBindings": false
+      }
+    }
+  ],
+  "LockUsableAreaDisplay": true,
+  "LockUsableAreaTablet": true,
+  "Tools": []
+}

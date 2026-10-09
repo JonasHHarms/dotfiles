@@ -4,8 +4,8 @@ require("monitors")    -- Displays
 require("permissions") -- permissions
 require("keybinds")    -- bindings
 require("input")       -- devices and cursor
-require("autostart")   -- Autostart
 require("animations")  -- Animations
+require("autostart")   -- Autostart
 
 
 hl.config({

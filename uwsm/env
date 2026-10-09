@@ -76,10 +76,10 @@ export GTK_THEME=dark
 export GTK_USE_PORTAL=1
 export GDK_SCALE=1 #1 was set before might revert
 
-# XDG
-export XDG_CURRENT_DESKTOP=Hyprland
-export XDG_SESSION_TYPE=wayland,x11
-export XDG_SESSION_DESKTOP=Hyprland
+# XDG -- Not needed bc handled by uwsm
+#export XDG_CURRENT_DESKTOP=Hyprland 
+#export XDG_SESSION_TYPE=wayland,x11
+#export XDG_SESSION_DESKTOP=Hyprland
 
 # QT
 export QT_STYLE_OVERRIDE=kvantum-dark
@@ -90,3 +90,8 @@ export QT_QPA_PLATFORMTHEME=hyprqt6engine # qt6ct
 #export QT_PLUGIN_PATH=~/tools/hyprqt6engine/hyprqtplugin #/usr/lib/qt6/plugins
 export QT_DEBUG_PLUGINS=1
 export ELECTRON_OZONE_PLATFORM_HINT=auto
+
+#  Zoxide 
+export _ZO_ECHO=1
+export _ZO_RESOLVE_SYMLINKS=1
+
